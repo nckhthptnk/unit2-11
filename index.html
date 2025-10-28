@@ -1,0 +1,2738 @@
+<!doctype html>
+<html lang="vi">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Learning - Unit 2: Vietnam &amp; ASEAN</title>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            height: 100%;
+        }
+        html {
+            height: 100%;
+        }
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flashcard {
+            min-height: 200px;
+            cursor: pointer;
+        }
+        .section-card {
+            transition: all 0.3s ease;
+        }
+        .section-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .quiz-option {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .quiz-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .quiz-option.correct {
+            background-color: #10b981;
+            color: white;
+            border-color: #059669;
+        }
+        .quiz-option.incorrect {
+            background-color: #ef4444;
+            color: white;
+            border-color: #dc2626;
+        }
+        .vocab-highlight {
+            color: #374151;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid #6b7280;
+        }
+        .vocab-highlight:hover {
+            background-color: #fef3c7 !important;
+            transform: translateY(-1px);
+        }
+        .bg-yellow-200 {
+            background-color: #fde68a;
+        }
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+        .toast.show {
+            transform: translateX(0);
+        }
+        .country-flag {
+            width: 40px;
+            height: 30px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .asean-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .cultural-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .cultural-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-full"><!-- Toast Notification -->
+  <div id="toast" class="toast"><span id="toast-message">Hoàn thành!</span>
+  </div><!-- Header -->
+  <header class="bg-white shadow-lg border-b-4 border-blue-500">
+   <div class="max-w-6xl mx-auto px-4 py-6">
+    <div class="flex items-center justify-between"><!-- Home Button --> <button class="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg transition-colors">
+      <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+      </svg><span class="font-medium">Home</span> </button> <!-- Center Content -->
+     <div class="flex-1 text-center">
+      <h1 id="unit-title" class="text-3xl font-bold text-gray-800 mb-2">Unit 2: Vietnam and ASEAN</h1>
+      <p id="welcome-message" class="text-gray-600">Chào mừng bạn đến với bài học Tiếng Anh cùng Mega Master 11 nhé!</p>
+     </div><!-- Right spacer to balance the layout -->
+     <div class="w-20"></div>
+    </div>
+   </div>
+  </header><!-- Progress Section -->
+  <div class="max-w-6xl mx-auto px-4 py-6">
+   <div class="bg-white rounded-xl shadow-lg p-6">
+    <div class="text-center mb-4">
+     <p id="progress-label" class="text-2xl text-gray-800 font-bold mb-4">Tiến độ học tập tổng</p>
+     <div class="bg-gray-200 rounded-full h-12 max-w-lg mx-auto relative">
+      <div id="progress-bar" class="progress-bar bg-gradient-to-r from-blue-500 to-purple-500 h-12 rounded-full transition-all" style="width: 0%"></div>
+      <div class="absolute inset-0 flex items-center justify-center"><span id="progress-text" class="text-xl font-bold text-gray-700">0%</span>
+      </div>
+     </div>
+    </div>
+    <div class="grid grid-cols-3 gap-4 mt-6">
+     <div class="text-center">
+      <div class="bg-green-100 rounded-full h-3 mb-2">
+       <div id="vocab-progress" class="bg-green-500 h-3 rounded-full" style="width: 0%"></div>
+      </div><span class="text-gray-700 font-medium">Từ vựng: <span id="vocab-percent" class="text-green-600 font-bold">0%</span></span>
+     </div>
+     <div class="text-center">
+      <div class="bg-blue-100 rounded-full h-3 mb-2">
+       <div id="reading-progress" class="bg-blue-500 h-3 rounded-full" style="width: 0%"></div>
+      </div><span class="text-gray-700 font-medium">Bài đọc: <span id="reading-percent" class="text-blue-600 font-bold">0%</span></span>
+     </div>
+     <div class="text-center">
+      <div class="bg-purple-100 rounded-full h-3 mb-2">
+       <div id="grammar-progress" class="bg-purple-500 h-3 rounded-full" style="width: 0%"></div>
+      </div><span class="text-gray-700 font-medium">Ngữ pháp: <span id="grammar-percent" class="text-purple-600 font-bold">0%</span></span>
+     </div>
+    </div>
+   </div>
+  </div><!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 py-8"><!-- Navigation Tabs -->
+   <div class="flex flex-wrap justify-center gap-4 mb-8 bg-white p-4 rounded-lg shadow-md"><button onclick="showSection('vocabulary')" class="tab-btn bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold transition-all text-lg"> 📚 Từ vựng </button> <button onclick="showSection('reading')" class="tab-btn bg-gray-200 text-gray-700 px-8 py-4 rounded-lg font-semibold transition-all text-lg"> 📖 Bài đọc </button> <button onclick="showSection('grammar')" class="tab-btn bg-gray-200 text-gray-700 px-8 py-4 rounded-lg font-semibold transition-all text-lg"> 📝 Ngữ pháp </button>
+   </div><!-- Vocabulary Section -->
+   <section id="vocabulary-section" class="section">
+    <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+     <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><span class="bg-blue-500 text-white p-2 rounded-lg mr-3">📚</span> Từ vựng chủ đề Vietnam &amp; ASEAN</h2><!-- Flashcard Interface -->
+     <div class="max-w-2xl mx-auto mb-8">
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-xl shadow-lg">
+       <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-semibold text-gray-800">Flashcard học từ vựng</h3><span id="card-counter" class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">1 / 40</span>
+       </div><!-- Flashcard -->
+       <div class="flip-card flashcard mb-6" onclick="flipCard()">
+        <div class="flip-card-inner relative w-full h-64"><!-- Front of card -->
+         <div class="flip-card-front absolute inset-0 bg-white rounded-lg shadow-lg border-2 border-blue-200 flex flex-col justify-center items-center p-6 cursor-pointer hover:shadow-xl transition-shadow">
+          <div class="text-center">
+           <div class="flex items-center justify-center mb-3">
+            <h4 id="card-word" class="text-3xl font-bold text-blue-800 mr-3">take away</h4><button onclick="event.stopPropagation(); speakWord(vocabularyData[currentCardIndex].word);" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full transition-colors">
+             <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.824L4.5 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.5l3.883-3.824zM15 8a3 3 0 000 6V8zM16 4a7 7 0 010 12V4z" clip-rule="evenodd" />
+             </svg></button>
+           </div>
+           <p id="card-pronunciation" class="text-lg text-gray-600 mb-4">/teɪk əˈweɪ/</p>
+           <p class="text-sm text-gray-500 italic">Nhấn để xem nghĩa và ví dụ</p>
+           <p class="text-xs text-gray-400 mt-2">Phím tắt: ← → (chuyển thẻ) | Space (lật thẻ)</p>
+          </div>
+         </div><!-- Back of card -->
+         <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-green-50 to-green-100 rounded-lg shadow-lg border-2 border-green-200 flex flex-col justify-center items-center p-6 cursor-pointer">
+          <div class="text-center">
+           <div class="flex items-center justify-center mb-3">
+            <h4 class="text-2xl font-bold text-green-800 mr-3" id="card-word-back">take away</h4><button onclick="event.stopPropagation(); speakWord(vocabularyData[currentCardIndex].word);" class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full transition-colors">
+             <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.824L4.5 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.5l3.883-3.824zM15 8a3 3 0 000 6V8zM16 4a7 7 0 010 12V4z" clip-rule="evenodd" />
+             </svg></button>
+           </div>
+           <p id="card-meaning" class="text-xl font-semibold text-green-700 mb-4">mang đi, lấy đi</p>
+           <p id="card-example" class="text-gray-700 italic text-center leading-relaxed">Please take away your trash when you leave.</p>
+           <p class="text-sm text-gray-500 mt-4">Nhấn để quay lại</p>
+          </div>
+         </div>
+        </div>
+       </div><!-- Navigation Controls -->
+       <div class="flex justify-between items-center"><button onclick="previousCard()" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center">
+         <svg class="w-5 h-5 mr-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg> Trước </button>
+        <div class="flex space-x-3"><button onclick="shuffleCards()" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-3 rounded-lg font-semibold transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" />
+          </svg></button> <button onclick="markAsLearned()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-lg font-semibold transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg></button>
+        </div><button onclick="nextCard()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center"> Tiếp 
+         <svg class="w-5 h-5 ml-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+         </svg></button>
+       </div><!-- Progress indicator -->
+       <div class="mt-6">
+        <div class="flex justify-between text-sm text-gray-600 mb-2"><span>Tiến độ học từ vựng</span> <span id="vocab-progress-text">0% hoàn thành</span>
+        </div>
+        <div class="bg-gray-200 rounded-full h-2">
+         <div id="vocab-progress-bar" class="bg-blue-500 h-2 rounded-full transition-all" style="width: 2.5%"></div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Vocabulary Quiz Section -->
+     <div class="bg-white rounded-xl shadow-lg p-8 mt-8">
+      <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><span class="bg-green-500 text-white p-2 rounded-lg mr-3">🧠</span> Kiểm tra từ vựng - 40 câu hỏi</h3>
+      <div id="vocab-quiz-container" class="max-w-3xl mx-auto"><!-- Quiz Progress -->
+       <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg mb-6">
+        <div class="flex justify-between items-center mb-4">
+         <h4 class="text-lg font-semibold text-gray-800">Tiến độ kiểm tra</h4><span id="vocab-quiz-counter" class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">Câu 1 / 40</span>
+        </div>
+        <div class="bg-white rounded-full h-4 mb-2">
+         <div id="vocab-quiz-progress" class="bg-gradient-to-r from-green-500 to-blue-500 h-4 rounded-full transition-all" style="width: 2.5%"></div>
+        </div>
+        <div class="flex justify-between text-sm text-gray-600"><span>Điểm số: <span id="vocab-quiz-score" class="font-bold text-green-600">0/40</span></span> <span>Tỷ lệ đúng: <span id="vocab-quiz-percentage" class="font-bold text-blue-600">0%</span></span>
+        </div>
+       </div><!-- Question Card -->
+       <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border-2 border-gray-200 p-8 mb-6">
+        <div class="text-center mb-6">
+         <h4 id="vocab-quiz-question" class="text-xl font-bold text-gray-800 mb-4">What does "take away" mean in Vietnamese?</h4>
+         <div id="vocab-quiz-audio-section" class="mb-4 hidden"><button onclick="playQuestionAudio()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors flex items-center mx-auto">
+           <svg class="w-5 h-5 mr-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.824L4.5 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.5l3.883-3.824zM15 8a3 3 0 000 6V8zM16 4a7 7 0 010 12V4z" clip-rule="evenodd" />
+           </svg> Nghe phát âm </button>
+         </div>
+        </div><!-- Answer Options -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"><button class="vocab-quiz-option bg-white border-2 border-gray-300 hover:border-blue-400 p-4 rounded-lg text-left transition-all transform hover:scale-105" onclick="selectVocabAnswer(0)"> <span class="font-semibold text-blue-600">A.</span> <span id="option-0">mang đi, lấy đi</span> </button> <button class="vocab-quiz-option bg-white border-2 border-gray-300 hover:border-blue-400 p-4 rounded-lg text-left transition-all transform hover:scale-105" onclick="selectVocabAnswer(1)"> <span class="font-semibold text-blue-600">B.</span> <span id="option-1">đưa vào</span> </button> <button class="vocab-quiz-option bg-white border-2 border-gray-300 hover:border-blue-400 p-4 rounded-lg text-left transition-all transform hover:scale-105" onclick="selectVocabAnswer(2)"> <span class="font-semibold text-blue-600">C.</span> <span id="option-2">mang lại</span> </button> <button class="vocab-quiz-option bg-white border-2 border-gray-300 hover:border-blue-400 p-4 rounded-lg text-left transition-all transform hover:scale-105" onclick="selectVocabAnswer(3)"> <span class="font-semibold text-blue-600">D.</span> <span id="option-3">để lại</span> </button>
+        </div><!-- Feedback Section -->
+        <div id="vocab-quiz-feedback" class="hidden mb-6 p-4 rounded-lg">
+         <div id="feedback-content" class="text-center">
+          <p id="feedback-text" class="text-lg font-semibold mb-2"></p>
+          <p id="feedback-explanation" class="text-gray-700"></p>
+         </div>
+        </div><!-- Navigation -->
+        <div class="flex justify-between items-center"><button id="vocab-quiz-prev" onclick="previousVocabQuestion()" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled> ← Câu trước </button>
+         <div class="text-center"><button id="vocab-quiz-hint" onclick="showHint()" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors mr-2"> 💡 Gợi ý </button> <button id="vocab-quiz-skip" onclick="skipQuestion()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"> ⏭️ Bỏ qua </button>
+         </div><button id="vocab-quiz-next" onclick="nextVocabQuestion()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"> Câu tiếp → </button>
+        </div>
+       </div><!-- Quick Stats -->
+       <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="bg-green-100 p-4 rounded-lg text-center">
+         <div class="text-2xl font-bold text-green-600" id="correct-count">
+          0
+         </div>
+         <div class="text-sm text-gray-600">
+          Câu đúng
+         </div>
+        </div>
+        <div class="bg-red-100 p-4 rounded-lg text-center">
+         <div class="text-2xl font-bold text-red-600" id="incorrect-count">
+          0
+         </div>
+         <div class="text-sm text-gray-600">
+          Câu sai
+         </div>
+        </div>
+        <div class="bg-yellow-100 p-4 rounded-lg text-center">
+         <div class="text-2xl font-bold text-yellow-600" id="skipped-count">
+          0
+         </div>
+         <div class="text-sm text-gray-600">
+          Bỏ qua
+         </div>
+        </div>
+       </div>
+      </div><!-- Quiz Results -->
+      <div id="vocab-quiz-results" class="hidden max-w-2xl mx-auto text-center">
+       <div class="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl shadow-lg">
+        <div class="text-6xl mb-4" id="result-emoji">
+         🎉
+        </div>
+        <h3 class="text-3xl font-bold text-gray-800 mb-4">Hoàn thành bài kiểm tra!</h3>
+        <div class="text-5xl font-bold mb-4" id="final-vocab-score">
+         32/40
+        </div>
+        <div class="text-xl text-gray-700 mb-6" id="final-vocab-message">
+         Xuất sắc! Bạn đã nắm vững từ vựng!
+        </div>
+        <div class="grid grid-cols-3 gap-4 mb-6">
+         <div class="bg-white p-4 rounded-lg shadow">
+          <div class="text-2xl font-bold text-green-600" id="final-correct">
+           32
+          </div>
+          <div class="text-sm text-gray-600">
+           Đúng
+          </div>
+         </div>
+         <div class="bg-white p-4 rounded-lg shadow">
+          <div class="text-2xl font-bold text-red-600" id="final-incorrect">
+           6
+          </div>
+          <div class="text-sm text-gray-600">
+           Sai
+          </div>
+         </div>
+         <div class="bg-white p-4 rounded-lg shadow">
+          <div class="text-2xl font-bold text-yellow-600" id="final-skipped">
+           2
+          </div>
+          <div class="text-sm text-gray-600">
+           Bỏ qua
+          </div>
+         </div>
+        </div>
+        <div class="space-y-3"><button onclick="restartVocabQuiz()" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors mr-4"> 🔄 Làm lại </button> <button onclick="reviewMistakes()" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors"> 📝 Xem lại câu sai </button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Reading Section -->
+   <section id="reading-section" class="section hidden">
+    <div class="bg-white rounded-xl shadow-lg p-8">
+     <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><span class="bg-blue-500 text-white p-2 rounded-lg mr-3">📖</span> Bài đọc: Vietnam's Role in ASEAN</h2>
+     <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-6">
+      <div class="flex justify-between items-center mb-4">
+       <h3 class="text-lg font-semibold text-gray-800">Tiến độ bài đọc</h3><span id="reading-progress-text" class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">0% hoàn thành</span>
+      </div>
+      <div class="bg-white rounded-full h-3">
+       <div id="reading-progress-bar" class="bg-blue-500 h-3 rounded-full transition-all" style="width: 0%"></div>
+      </div>
+     </div>
+     <div class="prose max-w-none">
+      <div class="bg-white border-l-4 border-blue-500 p-6 mb-6 rounded-r-lg shadow-sm">
+       <h3 class="text-xl font-bold text-gray-800 mb-4">Exploring Vietnam's Cultural Treasures</h3>
+       <p class="text-gray-700 leading-relaxed mb-4">Vietnam is a <span class="vocab-highlight bg-yellow-200" data-word="picturesque">picturesque</span> country with diverse landscapes. From the northern <span class="vocab-highlight bg-yellow-200" data-word="mountain">mountains</span> to the southern <span class="vocab-highlight bg-yellow-200" data-word="dune">dunes</span>, visitors can explore magnificent <span class="vocab-highlight bg-yellow-200" data-word="cave">caves</span> and stunning <span class="vocab-highlight bg-yellow-200" data-word="waterfall">waterfalls</span>. Ha Long <span class="vocab-highlight bg-yellow-200" data-word="bay">Bay</span> remains the most <span class="vocab-highlight bg-yellow-200" data-word="popular">popular</span> tourist destination, attracting millions of visitors annually.</p>
+       <p class="text-gray-700 leading-relaxed mb-4">The country's <span class="vocab-highlight bg-yellow-200" data-word="historical">historical</span> sites showcase Vietnam's rich <span class="vocab-highlight bg-yellow-200" data-word="culture">culture</span>. Ancient <span class="vocab-highlight bg-yellow-200" data-word="temple">temples</span> and <span class="vocab-highlight bg-yellow-200" data-word="pagoda">pagodas</span> demonstrate traditional <span class="vocab-highlight bg-yellow-200" data-word="architecture">architecture</span>. The Imperial <span class="vocab-highlight bg-yellow-200" data-word="citadel">Citadel</span> in Hue and royal <span class="vocab-highlight bg-yellow-200" data-word="tomb">tombs</span> are <span class="vocab-highlight bg-yellow-200" data-word="symbol">symbols</span> of Vietnam's imperial past. Many people <span class="vocab-highlight bg-yellow-200" data-word="worship">worship</span> their ancestors in these sacred places.</p>
+       <p class="text-gray-700 leading-relaxed mb-4">Vietnamese cuisine offers unique <span class="vocab-highlight bg-yellow-200" data-word="flavour">flavours</span> that tourists love to discover. Street food <span class="vocab-highlight bg-yellow-200" data-word="stall">stalls</span> serve delicious local dishes. Visitors should <span class="vocab-highlight bg-yellow-200" data-word="take off">take off</span> their shoes before entering traditional restaurants. Local guides <span class="vocab-highlight bg-yellow-200" data-word="recommend">recommend</span> trying pho and banh mi. The elderly share their <span class="vocab-highlight bg-yellow-200" data-word="wisdom">wisdom</span> about cooking techniques passed down through generations.</p>
+       <p class="text-gray-700 leading-relaxed">Tourism helps <span class="vocab-highlight bg-yellow-200" data-word="conserve">conserve</span> Vietnam's natural beauty and cultural heritage. The government works to <span class="vocab-highlight bg-yellow-200" data-word="locate">locate</span> and protect important <span class="vocab-highlight bg-yellow-200" data-word="tourist attraction">tourist attractions</span>. Vietnam remains a <span class="vocab-highlight bg-yellow-200" data-word="peaceful">peaceful</span> destination where visitors can experience authentic Asian hospitality and create unforgettable memories.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+       <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+        <h4 class="font-bold text-green-800 mb-3 flex items-center"><span class="mr-2">💡</span> Key Facts</h4>
+        <ul class="text-sm text-gray-700 space-y-2">
+         <li>• Vietnam joined ASEAN in 1995</li>
+         <li>• 7th member to join the association</li>
+         <li>• Population: ~97 million people</li>
+         <li>• Capital: Hanoi</li>
+         <li>• Major exports: electronics, textiles, seafood</li>
+        </ul>
+       </div>
+       <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+        <h4 class="font-bold text-purple-800 mb-3 flex items-center"><span class="mr-2">🎯</span> Vietnam's Contributions</h4>
+        <ul class="text-sm text-gray-700 space-y-2">
+         <li>• Economic growth and development</li>
+         <li>• Cultural diversity and heritage</li>
+         <li>• Regional stability and peace</li>
+         <li>• Trade and investment opportunities</li>
+         <li>• Educational and technological cooperation</li>
+        </ul>
+       </div>
+      </div>
+      <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+       <h4 class="font-bold text-yellow-800 mb-4 flex items-center"><span class="mr-2">📚</span> Comprehension Questions</h4>
+       <div class="space-y-4">
+        <div class="reading-question" data-question="1">
+         <p class="font-semibold text-gray-800 mb-2">1. What is the most popular tourist destination mentioned in the text?</p>
+         <div class="grid grid-cols-2 gap-2"><button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(1, 0)">A. Hue Citadel</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(1, 1)">B. Ha Long Bay</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(1, 2)">C. Ancient temples</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(1, 3)">D. Street food stalls</button>
+         </div>
+        </div>
+        <div class="reading-question" data-question="2">
+         <p class="font-semibold text-gray-800 mb-2">2. What should visitors do before entering traditional restaurants?</p>
+         <div class="grid grid-cols-1 gap-2"><button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(2, 0)">A. Take off their shoes</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(2, 1)">B. Bring their own food</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(2, 2)">C. Speak Vietnamese</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(2, 3)">D. Make reservations</button>
+         </div>
+        </div>
+        <div class="reading-question" data-question="3">
+         <p class="font-semibold text-gray-800 mb-2">3. What do the Imperial Citadel and royal tombs represent?</p>
+         <div class="grid grid-cols-1 gap-2"><button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(3, 0)">A. Modern architecture</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(3, 1)">B. Symbols of Vietnam's imperial past</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(3, 2)">C. French colonial influence</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(3, 3)">D. Buddhist temples</button>
+         </div>
+        </div>
+        <div class="reading-question" data-question="4">
+         <p class="font-semibold text-gray-800 mb-2">4. According to the text, what do local guides recommend?</p>
+         <div class="grid grid-cols-1 gap-2"><button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(4, 0)">A. Visiting museums only</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(4, 1)">B. Trying pho and banh mi</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(4, 2)">C. Staying in hotels</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(4, 3)">D. Learning Vietnamese</button>
+         </div>
+        </div>
+        <div class="reading-question" data-question="5">
+         <p class="font-semibold text-gray-800 mb-2">5. How does tourism help Vietnam according to the passage?</p>
+         <div class="grid grid-cols-1 gap-2"><button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(5, 0)">A. It brings money only</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(5, 1)">B. It helps conserve natural beauty and cultural heritage</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(5, 2)">C. It creates pollution</button> <button class="reading-option bg-white border-2 border-gray-200 p-3 rounded-lg text-left hover:border-yellow-400 transition-colors" onclick="selectReadingAnswer(5, 3)">D. It changes local culture</button>
+         </div>
+        </div>
+       </div>
+       <div class="mt-6 text-center"><button id="check-reading" onclick="checkReadingAnswers()" class="bg-yellow-500 text-white px-8 py-3 rounded-lg hover:bg-yellow-600 transition-colors font-semibold"> Kiểm tra đáp án </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Grammar Section -->
+   <section id="grammar-section" class="section hidden">
+    <div class="bg-white rounded-xl shadow-lg p-8">
+     <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><span class="bg-purple-500 text-white p-2 rounded-lg mr-3">📝</span> Ngữ pháp: Past Simple, Past Continuous, Cleft Sentences, Articles, It's Time, Would Rather</h2>
+     <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg mb-6">
+      <div class="flex justify-between items-center mb-4">
+       <h3 class="text-lg font-semibold text-gray-800">Tiến độ ngữ pháp</h3><span id="grammar-progress-text" class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">0% hoàn thành</span>
+      </div>
+      <div class="bg-white rounded-full h-3">
+       <div id="grammar-progress-bar" class="bg-purple-500 h-3 rounded-full transition-all" style="width: 0%"></div>
+      </div>
+     </div><!-- Grammar Topics Navigation -->
+     <div class="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-lg mb-8">
+      <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">📚 Chọn chủ đề ngữ pháp để học</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4"><button onclick="showGrammarTopic('past-simple')" class="grammar-topic-btn bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"> 📅 Past Simple </button> <button onclick="showGrammarTopic('past-continuous')" class="grammar-topic-btn bg-green-500 hover:bg-green-600 text-white p-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"> ⏰ Past Continuous </button> <button onclick="showGrammarTopic('cleft-sentences')" class="grammar-topic-btn bg-purple-500 hover:bg-purple-600 text-white p-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"> 🎯 Cleft Sentences </button> <button onclick="showGrammarTopic('articles')" class="grammar-topic-btn bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"> 📝 Articles A/An/The </button> <button onclick="showGrammarTopic('its-time')" class="grammar-topic-btn bg-red-500 hover:bg-red-600 text-white p-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"> ⏳ It's Time </button> <button onclick="showGrammarTopic('would-rather')" class="grammar-topic-btn bg-teal-500 hover:bg-teal-600 text-white p-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"> 💭 Would Rather </button>
+      </div>
+     </div><!-- Grammar Content Areas -->
+     <div id="grammar-content-area" class="mb-8">
+      <div class="text-center text-gray-500 py-12">
+       <div class="text-6xl mb-4">
+        📖
+       </div>
+       <h3 class="text-xl font-semibold mb-2">Chọn một chủ đề ngữ pháp</h3>
+       <p>Nhấn vào các nút phía trên để học từng chủ đề ngữ pháp</p>
+      </div>
+     </div><!-- Past Simple Content -->
+     <div id="past-simple-content" class="grammar-content hidden">
+      <div class="bg-blue-50 p-8 rounded-xl border-l-4 border-blue-500 shadow-lg">
+       <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold text-blue-800 flex items-center"><span class="mr-3">📅</span>Past Simple - Thì quá khứ đơn</h3><button onclick="hideGrammarTopic()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+       </div>
+       <div class="space-y-6">
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-2">🔧 Cấu trúc:</p>
+         <div class="bg-blue-100 p-3 rounded font-mono text-blue-800">
+          Subject + V-ed/V2 (past form)
+         </div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">📋 Cách dùng:</p>
+         <ul class="text-gray-700 space-y-2">
+          <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Hành động xảy ra và kết thúc trong quá khứ</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Có thời gian cụ thể trong quá khứ</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Chuỗi hành động trong quá khứ</li>
+         </ul>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">💡 Ví dụ:</p>
+         <ul class="text-gray-700 space-y-2">
+          <li class="bg-blue-50 p-2 rounded">Vietnam <strong class="text-blue-600">joined</strong> ASEAN in 1995.</li>
+          <li class="bg-blue-50 p-2 rounded">The meeting <strong class="text-blue-600">took place</strong> last week.</li>
+          <li class="bg-blue-50 p-2 rounded">I <strong class="text-blue-600">visited</strong> Thailand last year.</li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div><!-- Past Continuous Content -->
+     <div id="past-continuous-content" class="grammar-content hidden">
+      <div class="bg-green-50 p-8 rounded-xl border-l-4 border-green-500 shadow-lg">
+       <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold text-green-800 flex items-center"><span class="mr-3">⏰</span>Past Continuous - Thì quá khứ tiếp diễn</h3><button onclick="hideGrammarTopic()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+       </div>
+       <div class="space-y-6">
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-2">🔧 Cấu trúc:</p>
+         <div class="bg-green-100 p-3 rounded font-mono text-green-800">
+          Subject + was/were + V-ing
+         </div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">📋 Cách dùng:</p>
+         <ul class="text-gray-700 space-y-2">
+          <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Hành động đang diễn ra tại một thời điểm trong quá khứ</li>
+          <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Hành động bị gián đoạn bởi hành động khác</li>
+          <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Hai hành động xảy ra song song trong quá khứ</li>
+         </ul>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">💡 Ví dụ:</p>
+         <ul class="text-gray-700 space-y-2">
+          <li class="bg-green-50 p-2 rounded">I <strong class="text-green-600">was studying</strong> when he called.</li>
+          <li class="bg-green-50 p-2 rounded">They <strong class="text-green-600">were discussing</strong> ASEAN cooperation.</li>
+          <li class="bg-green-50 p-2 rounded">While I <strong class="text-green-600">was reading</strong>, she <strong class="text-green-600">was cooking</strong>.</li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div><!-- Cleft Sentences Content -->
+     <div id="cleft-sentences-content" class="grammar-content hidden">
+      <div class="bg-purple-50 p-8 rounded-xl border-l-4 border-purple-500 shadow-lg">
+       <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold text-purple-800 flex items-center"><span class="mr-3">🎯</span>Cleft Sentences - Câu chẻ</h3><button onclick="hideGrammarTopic()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+       </div>
+       <div class="space-y-6">
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-2">🔧 Cấu trúc:</p>
+         <div class="bg-purple-100 p-3 rounded font-mono text-purple-800">
+          It + is/was + focus + that/who + clause
+         </div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">📋 Cách dùng:</p>
+         <ul class="text-gray-700 space-y-2">
+          <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Nhấn mạnh một phần của câu</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Làm rõ thông tin quan trọng</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Tạo sự tập trung vào đối tượng cụ thể</li>
+         </ul>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">💡 Ví dụ:</p>
+         <ul class="text-gray-700 space-y-2">
+          <li class="bg-purple-50 p-2 rounded"><strong class="text-purple-600">It was Vietnam that</strong> joined ASEAN in 1995.</li>
+          <li class="bg-purple-50 p-2 rounded"><strong class="text-purple-600">It is cooperation that</strong> makes ASEAN strong.</li>
+          <li class="bg-purple-50 p-2 rounded"><strong class="text-purple-600">It was in 1967 that</strong> ASEAN was established.</li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div><!-- Articles Content -->
+     <div id="articles-content" class="grammar-content hidden">
+      <div class="bg-orange-50 p-8 rounded-xl border-l-4 border-orange-500 shadow-lg">
+       <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold text-orange-800 flex items-center"><span class="mr-3">📝</span>Articles: A/An/The - Mạo từ</h3><button onclick="hideGrammarTopic()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+       </div>
+       <div class="space-y-6">
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">📋 Cách dùng:</p>
+         <ul class="text-gray-700 space-y-2">
+          <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><strong>A/An:</strong> Danh từ không xác định, lần đầu nhắc đến</li>
+          <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><strong>The:</strong> Danh từ xác định, đã được nhắc đến</li>
+          <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><strong>A:</strong> Trước phụ âm, <strong>An:</strong> Trước nguyên âm</li>
+         </ul>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">💡 Ví dụ:</p>
+         <ul class="text-gray-700 space-y-2">
+          <li class="bg-orange-50 p-2 rounded">Vietnam is <strong class="text-orange-600">a</strong> member of ASEAN.</li>
+          <li class="bg-orange-50 p-2 rounded"><strong class="text-orange-600">The</strong> ASEAN Summit takes place annually.</li>
+          <li class="bg-orange-50 p-2 rounded">There is <strong class="text-orange-600">an</strong> important meeting today.</li>
+          <li class="bg-orange-50 p-2 rounded"><strong class="text-orange-600">The</strong> meeting will discuss trade issues.</li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div><!-- It's Time Content -->
+     <div id="its-time-content" class="grammar-content hidden">
+      <div class="bg-red-50 p-8 rounded-xl border-l-4 border-red-500 shadow-lg">
+       <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold text-red-800 flex items-center"><span class="mr-3">⏳</span>It's Time - Đã đến lúc</h3><button onclick="hideGrammarTopic()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+       </div>
+       <div class="space-y-6">
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">🔧 Cấu trúc:</p>
+         <div class="space-y-2">
+          <div class="bg-red-100 p-3 rounded font-mono text-red-800">
+           It's time + to V (đã đến lúc làm gì)
+          </div>
+          <div class="bg-red-100 p-3 rounded font-mono text-red-800">
+           It's time + S + V-ed (đã đến lúc ai đó nên làm gì)
+          </div>
+         </div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">💡 Ví dụ:</p>
+         <ul class="text-gray-700 space-y-2">
+          <li class="bg-red-50 p-2 rounded">It's time <strong class="text-red-600">to go</strong> home.</li>
+          <li class="bg-red-50 p-2 rounded">It's time <strong class="text-red-600">we left</strong> the meeting.</li>
+          <li class="bg-red-50 p-2 rounded">It's time <strong class="text-red-600">for ASEAN to strengthen</strong> cooperation.</li>
+          <li class="bg-red-50 p-2 rounded">It's time <strong class="text-red-600">Vietnam developed</strong> more tourism.</li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div><!-- Would Rather Content -->
+     <div id="would-rather-content" class="grammar-content hidden">
+      <div class="bg-teal-50 p-8 rounded-xl border-l-4 border-teal-500 shadow-lg">
+       <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold text-teal-800 flex items-center"><span class="mr-3">💭</span>Would Rather - Thích hơn</h3><button onclick="hideGrammarTopic()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+       </div>
+       <div class="space-y-6">
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">🔧 Cấu trúc:</p>
+         <div class="space-y-2">
+          <div class="bg-teal-100 p-3 rounded font-mono text-teal-800">
+           S + would rather + V (thích làm gì hơn)
+          </div>
+          <div class="bg-teal-100 p-3 rounded font-mono text-teal-800">
+           S + would rather + S + V-ed (thích ai đó làm gì)
+          </div>
+          <div class="bg-teal-100 p-3 rounded font-mono text-teal-800">
+           Would rather + V + than + V
+          </div>
+         </div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+         <p class="font-semibold text-gray-800 mb-3">💡 Ví dụ:</p>
+         <ul class="text-gray-700 space-y-2">
+          <li class="bg-teal-50 p-2 rounded">I <strong class="text-teal-600">would rather stay</strong> at home.</li>
+          <li class="bg-teal-50 p-2 rounded">She <strong class="text-teal-600">would rather you came</strong> early.</li>
+          <li class="bg-teal-50 p-2 rounded">I'd rather <strong class="text-teal-600">visit Vietnam than Thailand</strong>.</li>
+          <li class="bg-teal-50 p-2 rounded">We'd rather <strong class="text-teal-600">ASEAN focused</strong> on education.</li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div><!-- Grammar Practice Exercises -->
+     <div class="bg-white rounded-xl shadow-lg p-8 mt-8">
+      <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><span class="bg-indigo-500 text-white p-2 rounded-lg mr-3">✏️</span> Bài tập thực hành ngữ pháp - 30 câu hỏi</h3>
+      <div id="grammar-practice-container" class="max-w-4xl mx-auto"><!-- Practice Progress -->
+       <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-lg mb-6">
+        <div class="flex justify-between items-center mb-4">
+         <h4 class="text-lg font-semibold text-gray-800">Tiến độ bài tập</h4><span id="grammar-practice-counter" class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-semibold">Câu 1 / 30</span>
+        </div>
+        <div class="bg-white rounded-full h-4 mb-2">
+         <div id="grammar-practice-progress" class="bg-gradient-to-r from-indigo-500 to-purple-500 h-4 rounded-full transition-all" style="width: 3.33%"></div>
+        </div>
+        <div class="flex justify-between text-sm text-gray-600"><span>Điểm số: <span id="grammar-practice-score" class="font-bold text-indigo-600">0/30</span></span> <span>Tỷ lệ đúng: <span id="grammar-practice-percentage" class="font-bold text-purple-600">0%</span></span>
+        </div>
+       </div><!-- Question Card -->
+       <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border-2 border-gray-200 p-8 mb-6">
+        <div class="text-center mb-6">
+         <div class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block" id="grammar-topic-tag">
+          Past Simple
+         </div>
+         <h4 id="grammar-practice-question" class="text-xl font-bold text-gray-800 mb-4">Choose the correct answer:</h4>
+         <p id="grammar-practice-sentence" class="text-lg text-gray-700 mb-4 italic">"Vietnam _____ ASEAN in 1995."</p>
+        </div><!-- Answer Options -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"><button class="grammar-practice-option bg-white border-2 border-gray-300 hover:border-indigo-400 p-4 rounded-lg text-left transition-all transform hover:scale-105" onclick="selectGrammarPracticeAnswer(0)"> <span class="font-semibold text-indigo-600">A.</span> <span id="grammar-option-0">joined</span> </button> <button class="grammar-practice-option bg-white border-2 border-gray-300 hover:border-indigo-400 p-4 rounded-lg text-left transition-all transform hover:scale-105" onclick="selectGrammarPracticeAnswer(1)"> <span class="font-semibold text-indigo-600">B.</span> <span id="grammar-option-1">was joining</span> </button> <button class="grammar-practice-option bg-white border-2 border-gray-300 hover:border-indigo-400 p-4 rounded-lg text-left transition-all transform hover:scale-105" onclick="selectGrammarPracticeAnswer(2)"> <span class="font-semibold text-indigo-600">C.</span> <span id="grammar-option-2">has joined</span> </button> <button class="grammar-practice-option bg-white border-2 border-gray-300 hover:border-indigo-400 p-4 rounded-lg text-left transition-all transform hover:scale-105" onclick="selectGrammarPracticeAnswer(3)"> <span class="font-semibold text-indigo-600">D.</span> <span id="grammar-option-3">joins</span> </button>
+        </div><!-- Feedback Section -->
+        <div id="grammar-practice-feedback" class="hidden mb-6 p-4 rounded-lg">
+         <div id="grammar-feedback-content" class="text-center">
+          <p id="grammar-feedback-text" class="text-lg font-semibold mb-2"></p>
+          <p id="grammar-feedback-explanation" class="text-gray-700"></p>
+         </div>
+        </div><!-- Navigation -->
+        <div class="flex justify-between items-center"><button id="grammar-practice-prev" onclick="previousGrammarPracticeQuestion()" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled> ← Câu trước </button>
+         <div class="text-center"><button id="grammar-practice-hint" onclick="showGrammarHint()" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors mr-2"> 💡 Gợi ý </button> <button id="grammar-practice-skip" onclick="skipGrammarQuestion()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"> ⏭️ Bỏ qua </button>
+         </div><button id="grammar-practice-next" onclick="nextGrammarPracticeQuestion()" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"> Câu tiếp → </button>
+        </div>
+       </div><!-- Quick Stats -->
+       <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="bg-green-100 p-4 rounded-lg text-center">
+         <div class="text-2xl font-bold text-green-600" id="grammar-correct-count">
+          0
+         </div>
+         <div class="text-sm text-gray-600">
+          Câu đúng
+         </div>
+        </div>
+        <div class="bg-red-100 p-4 rounded-lg text-center">
+         <div class="text-2xl font-bold text-red-600" id="grammar-incorrect-count">
+          0
+         </div>
+         <div class="text-sm text-gray-600">
+          Câu sai
+         </div>
+        </div>
+        <div class="bg-yellow-100 p-4 rounded-lg text-center">
+         <div class="text-2xl font-bold text-yellow-600" id="grammar-skipped-count">
+          0
+         </div>
+         <div class="text-sm text-gray-600">
+          Bỏ qua
+         </div>
+        </div>
+       </div>
+      </div><!-- Practice Results -->
+      <div id="grammar-practice-results" class="hidden max-w-2xl mx-auto text-center">
+       <div class="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-xl shadow-lg">
+        <div class="text-6xl mb-4" id="grammar-result-emoji">
+         🎉
+        </div>
+        <h3 class="text-3xl font-bold text-gray-800 mb-4">Hoàn thành bài tập ngữ pháp!</h3>
+        <div class="text-5xl font-bold mb-4" id="final-grammar-practice-score">
+         25/30
+        </div>
+        <div class="text-xl text-gray-700 mb-6" id="final-grammar-practice-message">
+         Xuất sắc! Bạn đã nắm vững ngữ pháp!
+        </div>
+        <div class="grid grid-cols-3 gap-4 mb-6">
+         <div class="bg-white p-4 rounded-lg shadow">
+          <div class="text-2xl font-bold text-green-600" id="final-grammar-correct">
+           25
+          </div>
+          <div class="text-sm text-gray-600">
+           Đúng
+          </div>
+         </div>
+         <div class="bg-white p-4 rounded-lg shadow">
+          <div class="text-2xl font-bold text-red-600" id="final-grammar-incorrect">
+           4
+          </div>
+          <div class="text-sm text-gray-600">
+           Sai
+          </div>
+         </div>
+         <div class="bg-white p-4 rounded-lg shadow">
+          <div class="text-2xl font-bold text-yellow-600" id="final-grammar-skipped">
+           1
+          </div>
+          <div class="text-sm text-gray-600">
+           Bỏ qua
+          </div>
+         </div>
+        </div>
+        <div class="space-y-3"><button onclick="restartGrammarPractice()" class="bg-indigo-500 hover:bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors mr-4"> 🔄 Làm lại </button> <button onclick="reviewGrammarMistakes()" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors"> 📝 Xem lại câu sai </button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main><!-- Modal for vocabulary details -->
+  <div id="vocab-modal" class="modal">
+   <div class="bg-white rounded-xl p-8 max-w-md mx-4 shadow-2xl">
+    <div class="flex justify-between items-center mb-6">
+     <h3 id="modal-word" class="text-2xl font-bold text-gray-800">Word</h3><button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+    </div>
+    <div id="modal-content" class="space-y-4">
+     <p id="modal-pronunciation" class="text-gray-600 text-lg"></p>
+     <p id="modal-meaning" class="text-xl font-semibold text-blue-600"></p>
+     <p id="modal-example" class="text-gray-700 italic"></p>
+    </div>
+   </div>
+  </div>
+  <script>
+        // Configuration object for Element SDK
+        const defaultConfig = {
+            unit_title: "Unit 2: Vietnam and ASEAN",
+            welcome_message: "Chào mừng bạn đến với bài học Tiếng Anh cùng Mega Master 11 nhé!",
+            progress_label: "Tiến độ học tập tổng"
+        };
+
+        // Global variables
+        let currentSection = 'vocabulary';
+        let currentCardIndex = 0;
+        let isCardFlipped = false;
+        let currentQuestionIndex = 0;
+        let quizScore = 0;
+        let selectedAnswers = [];
+        let completedActivities = new Set();
+        let userProgress = [];
+        
+        // Progress tracking for each section
+        let vocabProgress = 0;
+        let readingProgress = 0;
+        let grammarProgress = 0;
+        let readingAnswers = [];
+        let grammarAnswers = [];
+        let readingScore = 0;
+        let grammarScore = 0;
+
+        // Vocabulary Quiz variables
+        let currentVocabQuizIndex = 0;
+        let vocabQuizScore = 0;
+        let vocabQuizAnswers = [];
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let skippedCount = 0;
+        let mistakesList = [];
+        let isAnswered = false;
+
+        // Grammar Practice variables
+        let currentGrammarPracticeIndex = 0;
+        let grammarPracticeScore = 0;
+        let grammarPracticeAnswers = [];
+        let grammarCorrectCount = 0;
+        let grammarIncorrectCount = 0;
+        let grammarSkippedCount = 0;
+        let grammarMistakesList = [];
+        let isGrammarAnswered = false;
+
+        // Vocabulary data
+        const vocabularyData = [
+            {
+                word: "take away",
+                pronunciation: "/teɪk əˈweɪ/",
+                meaning: "mang đi, lấy đi",
+                example: "Please take away your trash when you leave."
+            },
+            {
+                word: "conserve",
+                pronunciation: "/kənˈsɜːv/",
+                meaning: "bảo tồn, giữ gìn",
+                example: "We must conserve our natural resources."
+            },
+            {
+                word: "historical",
+                pronunciation: "/hɪˈstɒrɪkl/",
+                meaning: "thuộc về lịch sử",
+                example: "This is a historical building from the 15th century."
+            },
+            {
+                word: "picturesque",
+                pronunciation: "/ˌpɪktʃəˈresk/",
+                meaning: "đẹp như tranh",
+                example: "The village is very picturesque with old houses."
+            },
+            {
+                word: "another",
+                pronunciation: "/əˈnʌðə/",
+                meaning: "một cái khác",
+                example: "Would you like another cup of coffee?"
+            },
+            {
+                word: "other",
+                pronunciation: "/ˈʌðə/",
+                meaning: "khác",
+                example: "The other students are in the library."
+            },
+            {
+                word: "others",
+                pronunciation: "/ˈʌðəz/",
+                meaning: "những cái khác",
+                example: "Some like tea, others prefer coffee."
+            },
+            {
+                word: "the other",
+                pronunciation: "/ði ˈʌðə/",
+                meaning: "cái còn lại",
+                example: "I have two books. This is one, where is the other?"
+            },
+            {
+                word: "the others",
+                pronunciation: "/ði ˈʌðəz/",
+                meaning: "những cái còn lại",
+                example: "Three students left, the others stayed."
+            },
+            {
+                word: "each other",
+                pronunciation: "/iːtʃ ˈʌðə/",
+                meaning: "lẫn nhau (2 người)",
+                example: "They love each other very much."
+            },
+            {
+                word: "one another",
+                pronunciation: "/wʌn əˈnʌðə/",
+                meaning: "lẫn nhau (nhiều người)",
+                example: "The team members help one another."
+            },
+            {
+                word: "mountain",
+                pronunciation: "/ˈmaʊntɪn/",
+                meaning: "núi",
+                example: "Mount Everest is the highest mountain in the world."
+            },
+            {
+                word: "valley",
+                pronunciation: "/ˈvæli/",
+                meaning: "thung lũng",
+                example: "The valley is surrounded by high mountains."
+            },
+            {
+                word: "dune",
+                pronunciation: "/djuːn/",
+                meaning: "đồi cát",
+                example: "The sand dunes in the desert are beautiful."
+            },
+            {
+                word: "bay",
+                pronunciation: "/beɪ/",
+                meaning: "vịnh",
+                example: "Ha Long Bay is famous for its limestone islands."
+            },
+            {
+                word: "cave",
+                pronunciation: "/keɪv/",
+                meaning: "hang động",
+                example: "We explored a deep cave in the mountain."
+            },
+            {
+                word: "waterfall",
+                pronunciation: "/ˈwɔːtəfɔːl/",
+                meaning: "thác nước",
+                example: "The waterfall is 100 meters high."
+            },
+            {
+                word: "architecture",
+                pronunciation: "/ˈɑːkɪtektʃə/",
+                meaning: "kiến trúc",
+                example: "Vietnamese architecture is influenced by Chinese style."
+            },
+            {
+                word: "cathedral",
+                pronunciation: "/kəˈθiːdrəl/",
+                meaning: "nhà thờ lớn",
+                example: "Notre Dame Cathedral is a famous landmark."
+            },
+            {
+                word: "pagoda",
+                pronunciation: "/pəˈɡəʊdə/",
+                meaning: "chùa",
+                example: "The One Pillar Pagoda is in Hanoi."
+            },
+            {
+                word: "tower",
+                pronunciation: "/ˈtaʊə/",
+                meaning: "tháp",
+                example: "The Eiffel Tower is in Paris."
+            },
+            {
+                word: "citadel",
+                pronunciation: "/ˈsɪtədəl/",
+                meaning: "thành trì",
+                example: "Hue Citadel was the imperial capital."
+            },
+            {
+                word: "palace",
+                pronunciation: "/ˈpæləs/",
+                meaning: "cung điện",
+                example: "The royal palace is open to tourists."
+            },
+            {
+                word: "tomb",
+                pronunciation: "/tuːm/",
+                meaning: "lăng mộ",
+                example: "The emperor's tomb is beautifully decorated."
+            },
+            {
+                word: "tourist attraction",
+                pronunciation: "/ˈtʊərɪst əˈtrækʃn/",
+                meaning: "điểm thu hút khách du lịch",
+                example: "The temple is a popular tourist attraction."
+            },
+            {
+                word: "symbol",
+                pronunciation: "/ˈsɪmbl/",
+                meaning: "biểu tượng",
+                example: "The lotus is a symbol of purity in Vietnam."
+            },
+            {
+                word: "worship",
+                pronunciation: "/ˈwɜːʃɪp/",
+                meaning: "thờ cúng, tôn thờ",
+                example: "People worship their ancestors in temples."
+            },
+            {
+                word: "flavour",
+                pronunciation: "/ˈfleɪvə/",
+                meaning: "hương vị",
+                example: "Vietnamese food has a unique flavour."
+            },
+            {
+                word: "stall",
+                pronunciation: "/stɔːl/",
+                meaning: "quầy hàng",
+                example: "She bought noodles from a street stall."
+            },
+            {
+                word: "wisdom",
+                pronunciation: "/ˈwɪzdəm/",
+                meaning: "trí tuệ",
+                example: "The old man shared his wisdom with young people."
+            },
+            {
+                word: "recommend",
+                pronunciation: "/ˌrekəˈmend/",
+                meaning: "khuyên, giới thiệu",
+                example: "I recommend visiting this museum."
+            },
+            {
+                word: "take off",
+                pronunciation: "/teɪk ɒf/",
+                meaning: "cởi ra, khởi hành",
+                example: "Please take off your shoes before entering."
+            },
+            {
+                word: "culture",
+                pronunciation: "/ˈkʌltʃə/",
+                meaning: "văn hóa",
+                example: "Vietnamese culture is very rich and diverse."
+            },
+            {
+                word: "explain",
+                pronunciation: "/ɪkˈspleɪn/",
+                meaning: "giải thích",
+                example: "Can you explain this grammar rule?"
+            },
+            {
+                word: "historic",
+                pronunciation: "/hɪˈstɒrɪk/",
+                meaning: "có ý nghĩa lịch sử",
+                example: "This is a historic moment for our country."
+            },
+            {
+                word: "locate",
+                pronunciation: "/ləʊˈkeɪt/",
+                meaning: "định vị, tìm thấy",
+                example: "Can you locate Vietnam on the map?"
+            },
+            {
+                word: "peaceful",
+                pronunciation: "/ˈpiːsfl/",
+                meaning: "yên bình",
+                example: "The countryside is very peaceful."
+            },
+            {
+                word: "political",
+                pronunciation: "/pəˈlɪtɪkl/",
+                meaning: "thuộc về chính trị",
+                example: "He is interested in political science."
+            },
+            {
+                word: "pond",
+                pronunciation: "/pɒnd/",
+                meaning: "ao",
+                example: "There are fish in the pond."
+            },
+            {
+                word: "popular",
+                pronunciation: "/ˈpɒpjələ/",
+                meaning: "phổ biến",
+                example: "Pho is a popular Vietnamese dish."
+            },
+            {
+                word: "ready",
+                pronunciation: "/ˈredi/",
+                meaning: "sẵn sàng",
+                example: "Are you ready to go?"
+            },
+            {
+                word: "temple",
+                pronunciation: "/ˈtempl/",
+                meaning: "đền, miếu",
+                example: "The Temple of Literature is in Hanoi."
+            }
+        ];
+
+        // Vocabulary Quiz Questions (40 questions)
+        const vocabQuizQuestions = [
+            {
+                question: "What does 'take away' mean in Vietnamese?",
+                options: ["mang đi, lấy đi", "đưa vào", "mang lại", "để lại"],
+                correct: 0,
+                word: "take away",
+                explanation: "'Take away' có nghĩa là mang đi hoặc lấy đi một cái gì đó."
+            },
+            {
+                question: "Choose the correct meaning of 'conserve':",
+                options: ["phá hủy", "bảo tồn, giữ gìn", "sử dụng hết", "bỏ đi"],
+                correct: 1,
+                word: "conserve",
+                explanation: "'Conserve' có nghĩa là bảo tồn, giữ gìn tài nguyên thiên nhiên."
+            },
+            {
+                question: "What is the Vietnamese meaning of 'historical'?",
+                options: ["hiện đại", "thuộc về lịch sử", "tương lai", "khoa học"],
+                correct: 1,
+                word: "historical",
+                explanation: "'Historical' có nghĩa là thuộc về lịch sử."
+            },
+            {
+                question: "'Picturesque' means:",
+                options: ["xấu xí", "bình thường", "đẹp như tranh", "cũ kỹ"],
+                correct: 2,
+                word: "picturesque",
+                explanation: "'Picturesque' có nghĩa là đẹp như tranh, rất đẹp mắt."
+            },
+            {
+                question: "What does 'another' mean?",
+                options: ["một cái khác", "cái này", "tất cả", "không có"],
+                correct: 0,
+                word: "another",
+                explanation: "'Another' có nghĩa là một cái khác nữa."
+            },
+            {
+                question: "Choose the correct meaning of 'mountain':",
+                options: ["biển", "sông", "núi", "rừng"],
+                correct: 2,
+                word: "mountain",
+                explanation: "'Mountain' có nghĩa là núi."
+            },
+            {
+                question: "'Valley' in Vietnamese is:",
+                options: ["đồi", "thung lũng", "cao nguyên", "bãi biển"],
+                correct: 1,
+                word: "valley",
+                explanation: "'Valley' có nghĩa là thung lũng."
+            },
+            {
+                question: "What does 'dune' mean?",
+                options: ["núi đá", "đồi cát", "hồ nước", "cánh đồng"],
+                correct: 1,
+                word: "dune",
+                explanation: "'Dune' có nghĩa là đồi cát."
+            },
+            {
+                question: "'Bay' means:",
+                options: ["sông", "vịnh", "hồ", "suối"],
+                correct: 1,
+                word: "bay",
+                explanation: "'Bay' có nghĩa là vịnh."
+            },
+            {
+                question: "What is the meaning of 'cave'?",
+                options: ["núi", "hang động", "thác", "đảo"],
+                correct: 1,
+                word: "cave",
+                explanation: "'Cave' có nghĩa là hang động."
+            },
+            {
+                question: "'Waterfall' in Vietnamese:",
+                options: ["suối", "thác nước", "sông", "hồ"],
+                correct: 1,
+                word: "waterfall",
+                explanation: "'Waterfall' có nghĩa là thác nước."
+            },
+            {
+                question: "What does 'architecture' mean?",
+                options: ["hội họa", "kiến trúc", "âm nhạc", "văn học"],
+                correct: 1,
+                word: "architecture",
+                explanation: "'Architecture' có nghĩa là kiến trúc."
+            },
+            {
+                question: "'Cathedral' means:",
+                options: ["nhà thờ nhỏ", "nhà thờ lớn", "chùa", "đền"],
+                correct: 1,
+                word: "cathedral",
+                explanation: "'Cathedral' có nghĩa là nhà thờ lớn."
+            },
+            {
+                question: "What is 'pagoda' in Vietnamese?",
+                options: ["nhà thờ", "chùa", "đền", "miếu"],
+                correct: 1,
+                word: "pagoda",
+                explanation: "'Pagoda' có nghĩa là chùa."
+            },
+            {
+                question: "'Tower' means:",
+                options: ["nhà", "tháp", "cầu", "đường"],
+                correct: 1,
+                word: "tower",
+                explanation: "'Tower' có nghĩa là tháp."
+            },
+            {
+                question: "What does 'citadel' mean?",
+                options: ["thành phố", "thành trì", "làng", "thị trấn"],
+                correct: 1,
+                word: "citadel",
+                explanation: "'Citadel' có nghĩa là thành trì, pháo đài."
+            },
+            {
+                question: "'Palace' in Vietnamese:",
+                options: ["nhà", "cung điện", "lâu đài", "biệt thự"],
+                correct: 1,
+                word: "palace",
+                explanation: "'Palace' có nghĩa là cung điện."
+            },
+            {
+                question: "What is the meaning of 'tomb'?",
+                options: ["nhà", "lăng mộ", "đền", "chùa"],
+                correct: 1,
+                word: "tomb",
+                explanation: "'Tomb' có nghĩa là lăng mộ."
+            },
+            {
+                question: "'Tourist attraction' means:",
+                options: ["khách sạn", "điểm thu hút khách du lịch", "nhà hàng", "cửa hàng"],
+                correct: 1,
+                word: "tourist attraction",
+                explanation: "'Tourist attraction' có nghĩa là điểm thu hút khách du lịch."
+            },
+            {
+                question: "What does 'symbol' mean?",
+                options: ["hình ảnh", "biểu tượng", "màu sắc", "âm thanh"],
+                correct: 1,
+                word: "symbol",
+                explanation: "'Symbol' có nghĩa là biểu tượng."
+            },
+            {
+                question: "'Worship' means:",
+                options: ["chơi", "thờ cúng, tôn thờ", "học", "làm việc"],
+                correct: 1,
+                word: "worship",
+                explanation: "'Worship' có nghĩa là thờ cúng, tôn thờ."
+            },
+            {
+                question: "What is 'flavour' in Vietnamese?",
+                options: ["màu sắc", "hương vị", "âm thanh", "hình dạng"],
+                correct: 1,
+                word: "flavour",
+                explanation: "'Flavour' có nghĩa là hương vị."
+            },
+            {
+                question: "'Stall' means:",
+                options: ["cửa hàng lớn", "quầy hàng", "nhà kho", "văn phòng"],
+                correct: 1,
+                word: "stall",
+                explanation: "'Stall' có nghĩa là quầy hàng, gian hàng nhỏ."
+            },
+            {
+                question: "What does 'wisdom' mean?",
+                options: ["sức mạnh", "trí tuệ", "tốc độ", "chiều cao"],
+                correct: 1,
+                word: "wisdom",
+                explanation: "'Wisdom' có nghĩa là trí tuệ."
+            },
+            {
+                question: "'Recommend' in Vietnamese:",
+                options: ["từ chối", "khuyên, giới thiệu", "cấm", "bỏ qua"],
+                correct: 1,
+                word: "recommend",
+                explanation: "'Recommend' có nghĩa là khuyên, giới thiệu."
+            },
+            {
+                question: "What does 'take off' mean?",
+                options: ["mặc vào", "cởi ra, khởi hành", "mua", "bán"],
+                correct: 1,
+                word: "take off",
+                explanation: "'Take off' có nghĩa là cởi ra hoặc khởi hành."
+            },
+            {
+                question: "'Culture' means:",
+                options: ["khoa học", "văn hóa", "thể thao", "công nghệ"],
+                correct: 1,
+                word: "culture",
+                explanation: "'Culture' có nghĩa là văn hóa."
+            },
+            {
+                question: "What is 'explain' in Vietnamese?",
+                options: ["hỏi", "giải thích", "trả lời", "nghe"],
+                correct: 1,
+                word: "explain",
+                explanation: "'Explain' có nghĩa là giải thích."
+            },
+            {
+                question: "'Historic' means:",
+                options: ["mới", "có ý nghĩa lịch sử", "cũ", "bình thường"],
+                correct: 1,
+                word: "historic",
+                explanation: "'Historic' có nghĩa là có ý nghĩa lịch sử quan trọng."
+            },
+            {
+                question: "What does 'locate' mean?",
+                options: ["mất", "định vị, tìm thấy", "ẩn", "di chuyển"],
+                correct: 1,
+                word: "locate",
+                explanation: "'Locate' có nghĩa là định vị, tìm thấy vị trí."
+            },
+            {
+                question: "'Peaceful' in Vietnamese:",
+                options: ["ồn ào", "yên bình", "bận rộn", "náo nhiệt"],
+                correct: 1,
+                word: "peaceful",
+                explanation: "'Peaceful' có nghĩa là yên bình, thanh bình."
+            },
+            {
+                question: "What is 'political'?",
+                options: ["kinh tế", "thuộc về chính trị", "xã hội", "văn hóa"],
+                correct: 1,
+                word: "political",
+                explanation: "'Political' có nghĩa là thuộc về chính trị."
+            },
+            {
+                question: "'Pond' means:",
+                options: ["sông", "ao", "biển", "suối"],
+                correct: 1,
+                word: "pond",
+                explanation: "'Pond' có nghĩa là ao."
+            },
+            {
+                question: "What does 'popular' mean?",
+                options: ["hiếm", "phổ biến", "đắt", "khó"],
+                correct: 1,
+                word: "popular",
+                explanation: "'Popular' có nghĩa là phổ biến, được yêu thích."
+            },
+            {
+                question: "'Ready' in Vietnamese:",
+                options: ["mệt", "sẵn sàng", "bận", "chậm"],
+                correct: 1,
+                word: "ready",
+                explanation: "'Ready' có nghĩa là sẵn sàng."
+            },
+            {
+                question: "What is 'temple'?",
+                options: ["nhà", "đền, miếu", "trường", "bệnh viện"],
+                correct: 1,
+                word: "temple",
+                explanation: "'Temple' có nghĩa là đền, miếu thờ."
+            },
+            {
+                question: "Choose the correct usage of 'other':",
+                options: ["I need other book", "I need other books", "I need the other books", "I need another books"],
+                correct: 1,
+                word: "other",
+                explanation: "'Other' được dùng với danh từ số nhiều: 'other books'."
+            },
+            {
+                question: "Which sentence uses 'others' correctly?",
+                options: ["Some like tea, others like coffee", "Some like tea, other like coffee", "Some like tea, the others like coffee", "Some like tea, another like coffee"],
+                correct: 0,
+                word: "others",
+                explanation: "'Others' có nghĩa là 'những người/cái khác' và đứng độc lập."
+            },
+            {
+                question: "'Each other' is used for:",
+                options: ["nhiều người (3+)", "hai người", "một người", "tất cả mọi người"],
+                correct: 1,
+                word: "each other",
+                explanation: "'Each other' được dùng khi nói về mối quan hệ giữa hai người."
+            },
+            {
+                question: "'One another' is used for:",
+                options: ["hai người", "nhiều người (3+)", "một người", "không ai"],
+                correct: 1,
+                word: "one another",
+                explanation: "'One another' được dùng khi nói về mối quan hệ giữa nhiều người (từ 3 trở lên)."
+            }
+        ];
+
+        // Grammar Practice Questions (30 questions)
+        const grammarPracticeQuestions = [
+            {
+                topic: "Past Simple",
+                question: "Choose the correct answer:",
+                sentence: "Vietnam _____ ASEAN in 1995.",
+                options: ["joined", "was joining", "has joined", "joins"],
+                correct: 0,
+                explanation: "Dùng Past Simple vì có thời gian cụ thể 'in 1995' và hành động đã hoàn thành trong quá khứ."
+            },
+            {
+                topic: "Past Simple",
+                question: "Complete the sentence:",
+                sentence: "The meeting _____ place last week.",
+                options: ["took", "was taking", "has taken", "takes"],
+                correct: 0,
+                explanation: "Dùng Past Simple với 'last week' - thời gian cụ thể trong quá khứ."
+            },
+            {
+                topic: "Past Continuous",
+                question: "Choose the correct form:",
+                sentence: "I _____ when he called me.",
+                options: ["studied", "was studying", "have studied", "study"],
+                correct: 1,
+                explanation: "Past Continuous diễn tả hành động đang diễn ra khi có hành động khác xen vào."
+            },
+            {
+                topic: "Past Continuous",
+                question: "Select the right answer:",
+                sentence: "They _____ about ASEAN cooperation when I arrived.",
+                options: ["discussed", "were discussing", "have discussed", "discuss"],
+                correct: 1,
+                explanation: "Past Continuous cho hành động đang diễn ra tại thời điểm cụ thể trong quá khứ."
+            },
+            {
+                topic: "Past Simple vs Past Continuous",
+                question: "Choose the correct combination:",
+                sentence: "While I _____ the news, she _____ dinner.",
+                options: ["read / cooked", "was reading / was cooking", "read / was cooking", "was reading / cooked"],
+                correct: 1,
+                explanation: "Hai hành động xảy ra song song trong quá khứ đều dùng Past Continuous."
+            },
+            {
+                topic: "Cleft Sentences",
+                question: "Complete the cleft sentence:",
+                sentence: "_____ Vietnam that joined ASEAN in 1995.",
+                options: ["It was", "It is", "That was", "This is"],
+                correct: 0,
+                explanation: "Cleft sentence nhấn mạnh: It + was/is + focus + that/who + clause."
+            },
+            {
+                topic: "Cleft Sentences",
+                question: "Choose the correct cleft structure:",
+                sentence: "_____ cooperation that makes ASEAN strong.",
+                options: ["It was", "It is", "That is", "This was"],
+                correct: 1,
+                explanation: "Dùng 'It is' cho sự thật hiện tại trong câu chẻ."
+            },
+            {
+                topic: "Articles",
+                question: "Choose the correct article:",
+                sentence: "Vietnam is _____ member of ASEAN.",
+                options: ["a", "an", "the", "no article"],
+                correct: 0,
+                explanation: "Dùng 'a' trước 'member' vì bắt đầu bằng phụ âm và là danh từ đếm được số ít."
+            },
+            {
+                topic: "Articles",
+                question: "Select the right article:",
+                sentence: "_____ ASEAN Summit takes place annually.",
+                options: ["A", "An", "The", "No article"],
+                correct: 2,
+                explanation: "Dùng 'the' với tên riêng của tổ chức hoặc sự kiện cụ thể."
+            },
+            {
+                topic: "Articles",
+                question: "Complete with the correct article:",
+                sentence: "There is _____ important meeting today.",
+                options: ["a", "an", "the", "no article"],
+                correct: 1,
+                explanation: "Dùng 'an' trước 'important' vì bắt đầu bằng nguyên âm."
+            },
+            {
+                topic: "It's Time",
+                question: "Choose the correct structure:",
+                sentence: "It's time _____ home.",
+                options: ["go", "to go", "going", "went"],
+                correct: 1,
+                explanation: "It's time + to V (infinitive) - đã đến lúc làm gì."
+            },
+            {
+                topic: "It's Time",
+                question: "Complete the sentence:",
+                sentence: "It's time we _____ the meeting.",
+                options: ["leave", "left", "to leave", "leaving"],
+                correct: 1,
+                explanation: "It's time + S + V-ed (past form) - đã đến lúc ai đó nên làm gì."
+            },
+            {
+                topic: "Would Rather",
+                question: "Choose the correct form:",
+                sentence: "I would rather _____ at home.",
+                options: ["stay", "to stay", "staying", "stayed"],
+                correct: 0,
+                explanation: "Would rather + V (bare infinitive) - thích làm gì hơn."
+            },
+            {
+                topic: "Would Rather",
+                question: "Complete the sentence:",
+                sentence: "She would rather you _____ early.",
+                options: ["come", "came", "to come", "coming"],
+                correct: 1,
+                explanation: "Would rather + S + V-ed - thích ai đó làm gì."
+            },
+            {
+                topic: "Would Rather",
+                question: "Select the right structure:",
+                sentence: "I'd rather _____ Vietnam _____ Thailand.",
+                options: ["visit / than", "to visit / than", "visiting / to", "visit / to"],
+                correct: 0,
+                explanation: "Would rather + V + than + V - thích làm gì hơn làm gì."
+            },
+            {
+                topic: "Past Simple",
+                question: "Choose the correct past form:",
+                sentence: "The conference _____ successfully last month.",
+                options: ["ended", "was ending", "has ended", "ends"],
+                correct: 0,
+                explanation: "Past Simple với thời gian cụ thể 'last month'."
+            },
+            {
+                topic: "Past Continuous",
+                question: "Complete with Past Continuous:",
+                sentence: "At 8 PM yesterday, we _____ about the project.",
+                options: ["talked", "were talking", "have talked", "talk"],
+                correct: 1,
+                explanation: "Past Continuous cho hành động đang diễn ra tại thời điểm cụ thể trong quá khứ."
+            },
+            {
+                topic: "Cleft Sentences",
+                question: "Choose the correct cleft sentence:",
+                sentence: "_____ in 1967 that ASEAN was established.",
+                options: ["It was", "It is", "That was", "This is"],
+                correct: 0,
+                explanation: "Cleft sentence nhấn mạnh thời gian trong quá khứ dùng 'It was'."
+            },
+            {
+                topic: "Articles",
+                question: "Select the correct article:",
+                sentence: "_____ meeting will discuss trade issues.",
+                options: ["A", "An", "The", "No article"],
+                correct: 2,
+                explanation: "Dùng 'the' khi danh từ đã được xác định hoặc nhắc đến trước đó."
+            },
+            {
+                topic: "It's Time",
+                question: "Complete the sentence:",
+                sentence: "It's time for ASEAN _____ cooperation.",
+                options: ["strengthen", "to strengthen", "strengthening", "strengthened"],
+                correct: 1,
+                explanation: "It's time for + N/pronoun + to V - đã đến lúc ai/cái gì làm gì."
+            },
+            {
+                topic: "Past Simple vs Past Continuous",
+                question: "Choose the correct combination:",
+                sentence: "When the phone _____, I _____ TV.",
+                options: ["rang / watched", "was ringing / watched", "rang / was watching", "was ringing / was watching"],
+                correct: 2,
+                explanation: "Hành động ngắn (rang) dùng Past Simple, hành động dài đang diễn ra (was watching) dùng Past Continuous."
+            },
+            {
+                topic: "Would Rather",
+                question: "Complete the sentence:",
+                sentence: "We'd rather ASEAN _____ on education.",
+                options: ["focus", "focused", "to focus", "focusing"],
+                correct: 1,
+                explanation: "Would rather + S + V-ed - mong muốn ai đó làm gì."
+            },
+            {
+                topic: "Articles",
+                question: "Choose the correct article:",
+                sentence: "He is _____ excellent student.",
+                options: ["a", "an", "the", "no article"],
+                correct: 1,
+                explanation: "Dùng 'an' trước 'excellent' vì bắt đầu bằng nguyên âm."
+            },
+            {
+                topic: "Cleft Sentences",
+                question: "Select the correct cleft structure:",
+                sentence: "_____ the students who organized the event.",
+                options: ["It was", "It is", "They were", "Those are"],
+                correct: 0,
+                explanation: "Cleft sentence nhấn mạnh chủ ngữ: It + was + focus + who + clause."
+            },
+            {
+                topic: "Past Simple",
+                question: "Choose the correct form:",
+                sentence: "She _____ to Thailand three times last year.",
+                options: ["went", "was going", "has gone", "goes"],
+                correct: 0,
+                explanation: "Past Simple với thời gian cụ thể 'last year'."
+            },
+            {
+                topic: "It's Time",
+                question: "Complete the sentence:",
+                sentence: "It's time Vietnam _____ more tourism.",
+                options: ["develop", "developed", "to develop", "developing"],
+                correct: 1,
+                explanation: "It's time + S + V-ed - đã đến lúc ai đó nên làm gì."
+            },
+            {
+                topic: "Past Continuous",
+                question: "Choose the correct form:",
+                sentence: "The delegates _____ when the meeting started.",
+                options: ["arrived", "were arriving", "have arrived", "arrive"],
+                correct: 1,
+                explanation: "Past Continuous cho hành động đang diễn ra khi có hành động khác."
+            },
+            {
+                topic: "Articles",
+                question: "Select the right article:",
+                sentence: "_____ cooperation between countries is important.",
+                options: ["A", "An", "The", "No article"],
+                correct: 3,
+                explanation: "Không dùng mạo từ với danh từ trừu tượng mang nghĩa chung."
+            },
+            {
+                topic: "Would Rather",
+                question: "Complete the sentence:",
+                sentence: "I'd rather _____ coffee _____ tea.",
+                options: ["drink / than", "to drink / than", "drinking / to", "drink / to"],
+                correct: 0,
+                explanation: "Would rather + V + than + V - thích cái gì hơn cái gì."
+            },
+            {
+                topic: "Cleft Sentences",
+                question: "Choose the correct cleft sentence:",
+                sentence: "_____ teamwork that leads to success.",
+                options: ["It was", "It is", "That is", "This was"],
+                correct: 1,
+                explanation: "Cleft sentence cho sự thật hiện tại dùng 'It is'."
+            }
+        ];
+
+        // Quiz questions
+        const quizQuestions = [
+            {
+                question: "What does 'heritage' mean in Vietnamese?",
+                options: ["sự đa dạng", "di sản", "sự hợp tác", "truyền thống"],
+                correct: 1
+            },
+            {
+                question: "Which word means 'cooperation' in English?",
+                options: ["diversity", "tradition", "cooperation", "integration"],
+                correct: 2
+            },
+            {
+                question: "ASEAN was established in which year?",
+                options: ["1965", "1967", "1970", "1975"],
+                correct: 1
+            },
+            {
+                question: "How many countries are members of ASEAN?",
+                options: ["8", "9", "10", "11"],
+                correct: 2
+            },
+            {
+                question: "What does 'prosperity' mean?",
+                options: ["sự nghèo khó", "sự thịnh vượng", "sự khó khăn", "sự bất ổn"],
+                correct: 1
+            }
+        ];
+
+        // Data SDK handler
+        const dataHandler = {
+            onDataChanged(data) {
+                userProgress = data;
+                updateProgressDisplay();
+            }
+        };
+
+        // Element SDK configuration
+        const elementConfig = {
+            defaultConfig: defaultConfig,
+            onConfigChange: async (config) => {
+                const unitTitle = config.unit_title || defaultConfig.unit_title;
+                const welcomeMessage = config.welcome_message || defaultConfig.welcome_message;
+                const progressLabel = config.progress_label || defaultConfig.progress_label;
+
+                document.getElementById('unit-title').textContent = unitTitle;
+                document.getElementById('welcome-message').textContent = welcomeMessage;
+                document.getElementById('progress-label').textContent = progressLabel;
+            },
+            mapToCapabilities: (config) => ({
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            }),
+            mapToEditPanelValues: (config) => new Map([
+                ["unit_title", config.unit_title || defaultConfig.unit_title],
+                ["welcome_message", config.welcome_message || defaultConfig.welcome_message],
+                ["progress_label", config.progress_label || defaultConfig.progress_label]
+            ])
+        };
+
+        // Initialize application
+        async function initApp() {
+            try {
+                // Initialize Data SDK
+                if (window.dataSdk) {
+                    const initResult = await window.dataSdk.init(dataHandler);
+                    if (!initResult.isOk) {
+                        console.error("Failed to initialize Data SDK");
+                    }
+                }
+
+                // Initialize Element SDK
+                if (window.elementSdk) {
+                    await window.elementSdk.init(elementConfig);
+                }
+
+                // Initialize UI
+                showSection('vocabulary');
+                updateFlashcard();
+                updateQuiz();
+                updateVocabProgress();
+                updateProgressDisplay();
+                updateVocabQuiz();
+                updateGrammarPractice();
+            } catch (error) {
+                console.error("Initialization error:", error);
+            }
+        }
+
+        // Section navigation
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show selected section
+            document.getElementById(sectionName + '-section').classList.remove('hidden');
+
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-500', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-blue-500', 'text-white');
+
+            currentSection = sectionName;
+        }
+
+        // Flashcard functions
+        function updateFlashcard() {
+            const card = vocabularyData[currentCardIndex];
+            document.getElementById('card-word').textContent = card.word;
+            document.getElementById('card-word-back').textContent = card.word;
+            document.getElementById('card-pronunciation').textContent = card.pronunciation;
+            document.getElementById('card-meaning').textContent = card.meaning;
+            document.getElementById('card-example').textContent = card.example;
+            document.getElementById('card-counter').textContent = `${currentCardIndex + 1} / ${vocabularyData.length}`;
+            
+            // Reset flip state
+            document.querySelector('.flip-card').classList.remove('flipped');
+            isCardFlipped = false;
+        }
+
+        function markAsLearned() {
+            // Mark current card as learned and move to next
+            showToast(`Đã học từ "${vocabularyData[currentCardIndex].word}"!`);
+            saveProgress('vocab_learned', currentCardIndex);
+            nextCard();
+        }
+
+        function flipCard() {
+            const flipCard = document.querySelector('.flip-card');
+            flipCard.classList.toggle('flipped');
+            isCardFlipped = !isCardFlipped;
+        }
+
+        function nextCard() {
+            currentCardIndex = (currentCardIndex + 1) % vocabularyData.length;
+            updateFlashcard();
+            updateVocabProgress();
+            saveProgress('flashcard', currentCardIndex);
+            // Auto-pronounce the new word
+            speakWord(vocabularyData[currentCardIndex].word);
+        }
+
+        function previousCard() {
+            currentCardIndex = currentCardIndex === 0 ? vocabularyData.length - 1 : currentCardIndex - 1;
+            updateFlashcard();
+            updateVocabProgress();
+            // Auto-pronounce the new word
+            speakWord(vocabularyData[currentCardIndex].word);
+        }
+
+        function shuffleCards() {
+            // Simple shuffle - just randomize current index
+            currentCardIndex = Math.floor(Math.random() * vocabularyData.length);
+            updateFlashcard();
+            updateVocabProgress();
+            showToast('Đã trộn thẻ!');
+        }
+
+        // Quiz functions
+        function updateQuiz() {
+            if (currentQuestionIndex >= quizQuestions.length) {
+                showQuizResults();
+                return;
+            }
+
+            const question = quizQuestions[currentQuestionIndex];
+            document.getElementById('question-text').textContent = question.question;
+            document.getElementById('quiz-counter').textContent = `Câu hỏi ${currentQuestionIndex + 1} / ${quizQuestions.length}`;
+            document.getElementById('quiz-progress').style.width = `${((currentQuestionIndex + 1) / quizQuestions.length) * 100}%`;
+
+            // Update options
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach((option, index) => {
+                option.textContent = `${String.fromCharCode(65 + index)}. ${question.options[index]}`;
+                option.classList.remove('correct', 'incorrect');
+                option.classList.add('bg-gray-50', 'border-gray-200');
+                option.classList.remove('bg-green-500', 'bg-red-500', 'text-white', 'border-green-600', 'border-red-600');
+            });
+
+            // Update navigation buttons
+            document.getElementById('quiz-prev').disabled = currentQuestionIndex === 0;
+            document.getElementById('quiz-next').textContent = currentQuestionIndex === quizQuestions.length - 1 ? 'Kết thúc' : 'Câu tiếp →';
+        }
+
+        function selectAnswer(answerIndex) {
+            const question = quizQuestions[currentQuestionIndex];
+            const options = document.querySelectorAll('.quiz-option');
+            
+            // Clear previous selections
+            options.forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+                option.classList.add('bg-gray-50', 'border-gray-200');
+                option.classList.remove('bg-green-500', 'bg-red-500', 'text-white', 'border-green-600', 'border-red-600');
+            });
+
+            // Mark selected answer
+            selectedAnswers[currentQuestionIndex] = answerIndex;
+            
+            if (answerIndex === question.correct) {
+                options[answerIndex].classList.add('correct');
+                options[answerIndex].classList.remove('bg-gray-50', 'border-gray-200');
+            } else {
+                options[answerIndex].classList.add('incorrect');
+                options[answerIndex].classList.remove('bg-gray-50', 'border-gray-200');
+                // Also show correct answer
+                options[question.correct].classList.add('correct');
+                options[question.correct].classList.remove('bg-gray-50', 'border-gray-200');
+            }
+        }
+
+        function nextQuestion() {
+            if (selectedAnswers[currentQuestionIndex] !== undefined) {
+                if (selectedAnswers[currentQuestionIndex] === quizQuestions[currentQuestionIndex].correct) {
+                    quizScore++;
+                }
+            }
+
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex >= quizQuestions.length) {
+                showQuizResults();
+            } else {
+                updateQuiz();
+            }
+
+            document.getElementById('quiz-score').textContent = `Điểm: ${quizScore}`;
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                updateQuiz();
+            }
+        }
+
+        function showQuizResults() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-results').classList.remove('hidden');
+            
+            const percentage = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('final-score').textContent = `${quizScore}/${quizQuestions.length}`;
+            
+            let message = '';
+            if (percentage >= 80) {
+                message = '🎉 Xuất sắc! Bạn đã nắm vững kiến thức!';
+            } else if (percentage >= 60) {
+                message = '👍 Tốt! Hãy ôn lại một số từ vựng.';
+            } else {
+                message = '💪 Hãy học thêm và thử lại nhé!';
+            }
+            
+            document.getElementById('score-message').textContent = message;
+            
+            // Save quiz completion
+            saveProgress('quiz', quizScore);
+            completedActivities.add('quiz');
+            updateProgressDisplay();
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            quizScore = 0;
+            selectedAnswers = [];
+            
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('quiz-results').classList.add('hidden');
+            document.getElementById('quiz-score').textContent = 'Điểm: 0';
+            
+            updateQuiz();
+        }
+
+        // Reading comprehension functions
+        function selectReadingAnswer(questionNum, answerIndex) {
+            readingAnswers[questionNum] = answerIndex;
+            
+            // Update UI to show selection
+            const question = document.querySelector(`[data-question="${questionNum}"]`);
+            const options = question.querySelectorAll('.reading-option');
+            
+            options.forEach((option, index) => {
+                option.classList.remove('border-yellow-400', 'bg-yellow-100');
+                if (index === answerIndex) {
+                    option.classList.add('border-yellow-400', 'bg-yellow-100');
+                }
+            });
+        }
+
+        function checkReadingAnswers() {
+            const correctAnswers = [null, 1, 0, 1, 1, 1]; // Index 0 unused, questions 1-5
+            readingScore = 0;
+            
+            for (let i = 1; i <= 5; i++) {
+                const question = document.querySelector(`[data-question="${i}"]`);
+                const options = question.querySelectorAll('.reading-option');
+                
+                options.forEach((option, index) => {
+                    option.classList.remove('border-green-500', 'border-red-500', 'bg-green-100', 'bg-red-100');
+                    
+                    if (index === correctAnswers[i]) {
+                        option.classList.add('border-green-500', 'bg-green-100');
+                    } else if (index === readingAnswers[i] && readingAnswers[i] !== correctAnswers[i]) {
+                        option.classList.add('border-red-500', 'bg-red-100');
+                    }
+                });
+                
+                if (readingAnswers[i] === correctAnswers[i]) {
+                    readingScore++;
+                }
+            }
+            
+            readingProgress = Math.round((readingScore / 5) * 100);
+            document.getElementById('reading-progress-bar').style.width = `${readingProgress}%`;
+            document.getElementById('reading-progress-text').textContent = `${readingProgress}% hoàn thành`;
+            
+            saveProgress('reading', readingScore);
+            updateOverallProgress();
+            showToast(`Bài đọc: ${readingScore}/5 đúng!`);
+            
+            document.getElementById('check-reading').disabled = true;
+            document.getElementById('check-reading').textContent = 'Đã kiểm tra';
+        }
+
+        // Grammar topic functions
+        function showGrammarTopic(topicId) {
+            // Hide all grammar content
+            document.querySelectorAll('.grammar-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Hide the default message
+            document.getElementById('grammar-content-area').classList.add('hidden');
+            
+            // Show selected topic
+            document.getElementById(topicId + '-content').classList.remove('hidden');
+            
+            // Update button states
+            document.querySelectorAll('.grammar-topic-btn').forEach(btn => {
+                btn.classList.remove('ring-4', 'ring-white', 'ring-opacity-50');
+            });
+            
+            // Add active state to clicked button
+            event.target.classList.add('ring-4', 'ring-white', 'ring-opacity-50');
+            
+            // Update progress
+            grammarProgress = Math.min(grammarProgress + 16.67, 100); // Each topic is ~16.67% (6 topics)
+            document.getElementById('grammar-progress-bar').style.width = `${grammarProgress}%`;
+            document.getElementById('grammar-progress-text').textContent = `${Math.round(grammarProgress)}% hoàn thành`;
+            
+            updateOverallProgress();
+            saveProgress('grammar_topic', topicId);
+            showToast(`Đã mở chủ đề: ${getTopicName(topicId)}`);
+        }
+
+        function hideGrammarTopic() {
+            // Hide all grammar content
+            document.querySelectorAll('.grammar-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Show the default message
+            document.getElementById('grammar-content-area').classList.remove('hidden');
+            
+            // Remove active states from buttons
+            document.querySelectorAll('.grammar-topic-btn').forEach(btn => {
+                btn.classList.remove('ring-4', 'ring-white', 'ring-opacity-50');
+            });
+        }
+
+        function getTopicName(topicId) {
+            const topicNames = {
+                'past-simple': 'Past Simple',
+                'past-continuous': 'Past Continuous', 
+                'cleft-sentences': 'Cleft Sentences',
+                'articles': 'Articles A/An/The',
+                'its-time': "It's Time",
+                'would-rather': 'Would Rather'
+            };
+            return topicNames[topicId] || topicId;
+        }
+
+        // Grammar exercise functions
+        function selectGrammarAnswer(exerciseNum, answerIndex) {
+            grammarAnswers[exerciseNum] = answerIndex;
+            
+            // Update UI to show selection
+            const exercise = document.querySelector(`[data-exercise="${exerciseNum}"]`);
+            const options = exercise.querySelectorAll('.grammar-option');
+            
+            options.forEach((option, index) => {
+                option.classList.remove('border-red-400', 'bg-red-100');
+                if (index === answerIndex) {
+                    option.classList.add('border-red-400', 'bg-red-100');
+                }
+            });
+        }
+
+        function checkGrammarAnswers() {
+            const correctAnswers = [null, 1, 1, 0]; // Index 0 unused, exercises 1-3
+            grammarScore = 0;
+            
+            for (let i = 1; i <= 3; i++) {
+                const exercise = document.querySelector(`[data-exercise="${i}"]`);
+                const options = exercise.querySelectorAll('.grammar-option');
+                
+                options.forEach((option, index) => {
+                    option.classList.remove('border-green-500', 'border-red-500', 'bg-green-100', 'bg-red-100');
+                    
+                    if (index === correctAnswers[i]) {
+                        option.classList.add('border-green-500', 'bg-green-100');
+                    } else if (index === grammarAnswers[i] && grammarAnswers[i] !== correctAnswers[i]) {
+                        option.classList.add('border-red-500', 'bg-red-100');
+                    }
+                });
+                
+                if (grammarAnswers[i] === correctAnswers[i]) {
+                    grammarScore++;
+                }
+            }
+            
+            grammarProgress = Math.round((grammarScore / 3) * 100);
+            document.getElementById('grammar-progress-bar').style.width = `${grammarProgress}%`;
+            document.getElementById('grammar-progress-text').textContent = `${grammarProgress}% hoàn thành`;
+            
+            saveProgress('grammar', grammarScore);
+            updateOverallProgress();
+            showToast(`Ngữ pháp: ${grammarScore}/3 đúng!`);
+            
+            document.getElementById('check-grammar').disabled = true;
+            document.getElementById('check-grammar').textContent = 'Đã kiểm tra';
+        }
+
+        // Progress tracking
+        async function saveProgress(type, value) {
+            if (!window.dataSdk) return;
+
+            const progressData = {
+                id: `${type}_${Date.now()}`,
+                type: type,
+                score: typeof value === 'number' ? value : 1,
+                completed: true,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                const result = await window.dataSdk.create(progressData);
+                if (result.isOk) {
+                    completedActivities.add(type);
+                    showToast('Đã lưu tiến độ!');
+                }
+            } catch (error) {
+                console.error('Error saving progress:', error);
+            }
+        }
+
+        function updateVocabProgress() {
+            // Calculate vocabulary progress based on flashcard interactions
+            const viewedCards = Math.min(currentCardIndex + 1, vocabularyData.length);
+            vocabProgress = Math.round((viewedCards / vocabularyData.length) * 100);
+            
+            document.getElementById('vocab-progress').style.width = `${vocabProgress}%`;
+            document.getElementById('vocab-percent').textContent = `${vocabProgress}%`;
+            document.getElementById('vocab-progress-bar').style.width = `${vocabProgress}%`;
+            document.getElementById('vocab-progress-text').textContent = `${vocabProgress}% hoàn thành`;
+            
+            updateOverallProgress();
+        }
+
+        function updateOverallProgress() {
+            // Calculate overall progress as average of all sections
+            const totalProgress = (vocabProgress + readingProgress + grammarProgress) / 3;
+            const roundedProgress = Math.round(totalProgress);
+            
+            document.getElementById('progress-bar').style.width = `${roundedProgress}%`;
+            document.getElementById('progress-text').textContent = `${roundedProgress}%`;
+            
+            // Change text color based on progress
+            const progressText = document.getElementById('progress-text');
+            if (roundedProgress > 20) {
+                progressText.classList.remove('text-gray-700');
+                progressText.classList.add('text-white');
+            } else {
+                progressText.classList.remove('text-white');
+                progressText.classList.add('text-gray-700');
+            }
+            
+            // Update individual section displays
+            document.getElementById('reading-percent').textContent = `${readingProgress}%`;
+            document.getElementById('grammar-percent').textContent = `${grammarProgress}%`;
+        }
+
+        function updateProgressDisplay() {
+            updateOverallProgress();
+        }
+
+        // Text-to-speech function
+        function speakWord(word) {
+            if ('speechSynthesis' in window) {
+                // Cancel any ongoing speech
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.8;
+                utterance.pitch = 1;
+                utterance.volume = 0.8;
+                
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Sound effects functions
+        function playCorrectSound() {
+            // Create correct answer sound using Web Audio API
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            
+            // Create a sequence of ascending notes for success
+            const frequencies = [523.25, 659.25, 783.99]; // C5, E5, G5
+            let startTime = audioContext.currentTime;
+            
+            frequencies.forEach((freq, index) => {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(freq, startTime + index * 0.15);
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0, startTime + index * 0.15);
+                gainNode.gain.linearRampToValueAtTime(0.3, startTime + index * 0.15 + 0.05);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + index * 0.15 + 0.3);
+                
+                oscillator.start(startTime + index * 0.15);
+                oscillator.stop(startTime + index * 0.15 + 0.3);
+            });
+        }
+
+        function playIncorrectSound() {
+            // Create incorrect answer sound using Web Audio API
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            
+            // Create a descending buzz sound for incorrect
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(200, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(100, audioContext.currentTime + 0.5);
+            oscillator.type = 'sawtooth';
+            
+            gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.05);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.5);
+        }
+
+        // Vocabulary Quiz Functions
+        function updateVocabQuiz() {
+            if (currentVocabQuizIndex >= vocabQuizQuestions.length) {
+                showVocabQuizResults();
+                return;
+            }
+
+            const question = vocabQuizQuestions[currentVocabQuizIndex];
+            
+            // Update question display
+            document.getElementById('vocab-quiz-question').textContent = question.question;
+            document.getElementById('vocab-quiz-counter').textContent = `Câu ${currentVocabQuizIndex + 1} / ${vocabQuizQuestions.length}`;
+            
+            // Update progress bar
+            const progress = ((currentVocabQuizIndex + 1) / vocabQuizQuestions.length) * 100;
+            document.getElementById('vocab-quiz-progress').style.width = `${progress}%`;
+            
+            // Update options
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`option-${i}`).textContent = question.options[i];
+            }
+            
+            // Reset option styles
+            document.querySelectorAll('.vocab-quiz-option').forEach(option => {
+                option.classList.remove('border-green-500', 'border-red-500', 'bg-green-100', 'bg-red-100');
+                option.classList.add('border-gray-300', 'hover:border-blue-400');
+                option.disabled = false;
+            });
+            
+            // Hide feedback
+            document.getElementById('vocab-quiz-feedback').classList.add('hidden');
+            
+            // Update navigation buttons
+            document.getElementById('vocab-quiz-prev').disabled = currentVocabQuizIndex === 0;
+            document.getElementById('vocab-quiz-next').textContent = currentVocabQuizIndex === vocabQuizQuestions.length - 1 ? 'Kết thúc' : 'Câu tiếp →';
+            
+            // Show audio button for pronunciation questions
+            if (question.word) {
+                document.getElementById('vocab-quiz-audio-section').classList.remove('hidden');
+            } else {
+                document.getElementById('vocab-quiz-audio-section').classList.add('hidden');
+            }
+            
+            isAnswered = false;
+        }
+
+        function selectVocabAnswer(answerIndex) {
+            if (isAnswered) return;
+            
+            const question = vocabQuizQuestions[currentVocabQuizIndex];
+            const options = document.querySelectorAll('.vocab-quiz-option');
+            const feedbackDiv = document.getElementById('vocab-quiz-feedback');
+            const feedbackText = document.getElementById('feedback-text');
+            const feedbackExplanation = document.getElementById('feedback-explanation');
+            
+            // Disable all options
+            options.forEach(option => {
+                option.disabled = true;
+                option.classList.remove('hover:border-blue-400');
+            });
+            
+            // Store answer
+            vocabQuizAnswers[currentVocabQuizIndex] = answerIndex;
+            isAnswered = true;
+            
+            // Check if correct
+            if (answerIndex === question.correct) {
+                // Correct answer
+                options[answerIndex].classList.add('border-green-500', 'bg-green-100');
+                feedbackDiv.classList.remove('hidden');
+                feedbackDiv.classList.add('bg-green-50', 'border-green-200');
+                feedbackDiv.classList.remove('bg-red-50', 'border-red-200');
+                feedbackText.textContent = '🎉 Chính xác!';
+                feedbackText.classList.add('text-green-700');
+                feedbackText.classList.remove('text-red-700');
+                
+                vocabQuizScore++;
+                correctCount++;
+                playCorrectSound();
+            } else {
+                // Incorrect answer
+                options[answerIndex].classList.add('border-red-500', 'bg-red-100');
+                options[question.correct].classList.add('border-green-500', 'bg-green-100');
+                feedbackDiv.classList.remove('hidden');
+                feedbackDiv.classList.add('bg-red-50', 'border-red-200');
+                feedbackDiv.classList.remove('bg-green-50', 'border-green-200');
+                feedbackText.textContent = '❌ Chưa đúng!';
+                feedbackText.classList.add('text-red-700');
+                feedbackText.classList.remove('text-green-700');
+                
+                incorrectCount++;
+                mistakesList.push({
+                    question: question.question,
+                    yourAnswer: question.options[answerIndex],
+                    correctAnswer: question.options[question.correct],
+                    explanation: question.explanation
+                });
+                playIncorrectSound();
+            }
+            
+            feedbackExplanation.textContent = question.explanation;
+            
+            // Update stats
+            updateVocabQuizStats();
+            
+            // Auto advance after 2 seconds
+            setTimeout(() => {
+                if (currentVocabQuizIndex < vocabQuizQuestions.length - 1) {
+                    nextVocabQuestion();
+                } else {
+                    showVocabQuizResults();
+                }
+            }, 2000);
+        }
+
+        function nextVocabQuestion() {
+            currentVocabQuizIndex++;
+            updateVocabQuiz();
+        }
+
+        function previousVocabQuestion() {
+            if (currentVocabQuizIndex > 0) {
+                currentVocabQuizIndex--;
+                updateVocabQuiz();
+            }
+        }
+
+        function skipQuestion() {
+            skippedCount++;
+            vocabQuizAnswers[currentVocabQuizIndex] = -1; // Mark as skipped
+            updateVocabQuizStats();
+            nextVocabQuestion();
+        }
+
+        function showHint() {
+            const question = vocabQuizQuestions[currentVocabQuizIndex];
+            if (question.word) {
+                speakWord(question.word);
+                showToast(`Gợi ý: Nghe phát âm của từ "${question.word}"`);
+            } else {
+                showToast('Đọc kỹ câu hỏi và các lựa chọn!');
+            }
+        }
+
+        function playQuestionAudio() {
+            const question = vocabQuizQuestions[currentVocabQuizIndex];
+            if (question.word) {
+                speakWord(question.word);
+            }
+        }
+
+        function updateVocabQuizStats() {
+            document.getElementById('vocab-quiz-score').textContent = `${vocabQuizScore}/${vocabQuizQuestions.length}`;
+            document.getElementById('vocab-quiz-percentage').textContent = `${Math.round((vocabQuizScore / Math.max(1, currentVocabQuizIndex + 1)) * 100)}%`;
+            document.getElementById('correct-count').textContent = correctCount;
+            document.getElementById('incorrect-count').textContent = incorrectCount;
+            document.getElementById('skipped-count').textContent = skippedCount;
+        }
+
+        function showVocabQuizResults() {
+            document.getElementById('vocab-quiz-container').classList.add('hidden');
+            document.getElementById('vocab-quiz-results').classList.remove('hidden');
+            
+            const percentage = Math.round((vocabQuizScore / vocabQuizQuestions.length) * 100);
+            
+            // Update final scores
+            document.getElementById('final-vocab-score').textContent = `${vocabQuizScore}/${vocabQuizQuestions.length}`;
+            document.getElementById('final-correct').textContent = correctCount;
+            document.getElementById('final-incorrect').textContent = incorrectCount;
+            document.getElementById('final-skipped').textContent = skippedCount;
+            
+            // Update message and emoji based on score
+            let message = '';
+            let emoji = '';
+            
+            if (percentage >= 90) {
+                message = '🌟 Xuất sắc! Bạn đã thành thạo từ vựng!';
+                emoji = '🏆';
+            } else if (percentage >= 80) {
+                message = '🎉 Tuyệt vời! Bạn đã nắm vững hầu hết từ vựng!';
+                emoji = '🎉';
+            } else if (percentage >= 70) {
+                message = '👍 Tốt! Hãy ôn lại một số từ vựng.';
+                emoji = '👍';
+            } else if (percentage >= 60) {
+                message = '📚 Khá ổn! Cần luyện tập thêm.';
+                emoji = '📚';
+            } else {
+                message = '💪 Hãy học thêm và thử lại nhé!';
+                emoji = '💪';
+            }
+            
+            document.getElementById('final-vocab-message').textContent = message;
+            document.getElementById('result-emoji').textContent = emoji;
+            
+            // Save progress
+            saveProgress('vocab_quiz', vocabQuizScore);
+            
+            // Play completion sound
+            if (percentage >= 80) {
+                playCorrectSound();
+            }
+        }
+
+        function restartVocabQuiz() {
+            currentVocabQuizIndex = 0;
+            vocabQuizScore = 0;
+            vocabQuizAnswers = [];
+            correctCount = 0;
+            incorrectCount = 0;
+            skippedCount = 0;
+            mistakesList = [];
+            isAnswered = false;
+            
+            document.getElementById('vocab-quiz-container').classList.remove('hidden');
+            document.getElementById('vocab-quiz-results').classList.add('hidden');
+            
+            updateVocabQuiz();
+            updateVocabQuizStats();
+        }
+
+        function reviewMistakes() {
+            if (mistakesList.length === 0) {
+                showToast('Không có câu nào sai để xem lại!');
+                return;
+            }
+            
+            let reviewContent = 'CÁC CÂU TRẢ LỜI SAI:\n\n';
+            mistakesList.forEach((mistake, index) => {
+                reviewContent += `${index + 1}. ${mistake.question}\n`;
+                reviewContent += `   Bạn chọn: ${mistake.yourAnswer}\n`;
+                reviewContent += `   Đáp án đúng: ${mistake.correctAnswer}\n`;
+                reviewContent += `   Giải thích: ${mistake.explanation}\n\n`;
+            });
+            
+            // Create a modal to show mistakes
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-xl p-6 max-w-2xl max-h-96 overflow-y-auto">
+                    <h3 class="text-xl font-bold mb-4 text-red-600">📝 Xem lại câu sai</h3>
+                    <div class="space-y-4 text-sm">
+                        ${mistakesList.map((mistake, index) => `
+                            <div class="border-l-4 border-red-500 pl-4 py-2 bg-red-50">
+                                <p class="font-semibold">${index + 1}. ${mistake.question}</p>
+                                <p class="text-red-600">❌ Bạn chọn: ${mistake.yourAnswer}</p>
+                                <p class="text-green-600">✅ Đáp án đúng: ${mistake.correctAnswer}</p>
+                                <p class="text-gray-600 italic">${mistake.explanation}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                        Đóng
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Utility functions
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function closeModal() {
+            document.getElementById('vocab-modal').classList.remove('active');
+        }
+
+        // Keyboard controls
+        document.addEventListener('keydown', function(e) {
+            // Only handle keyboard shortcuts when in vocabulary section
+            if (currentSection !== 'vocabulary') return;
+            
+            switch(e.key) {
+                case 'ArrowRight':
+                    e.preventDefault();
+                    nextCard();
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    previousCard();
+                    break;
+                case ' ':
+                    e.preventDefault();
+                    flipCard();
+                    break;
+            }
+        });
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', initApp);
+
+        // Add click handlers for vocabulary highlights
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('vocab-highlight')) {
+                const word = e.target.textContent;
+                const vocabData = vocabularyData.find(v => v.word === word);
+                
+                if (vocabData) {
+                    document.getElementById('modal-word').textContent = vocabData.word;
+                    document.getElementById('modal-pronunciation').textContent = vocabData.pronunciation;
+                    document.getElementById('modal-meaning').textContent = vocabData.meaning;
+                    document.getElementById('modal-example').textContent = vocabData.example;
+                    document.getElementById('vocab-modal').classList.add('active');
+                }
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('vocab-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Grammar Practice Functions
+        function updateGrammarPractice() {
+            if (currentGrammarPracticeIndex >= grammarPracticeQuestions.length) {
+                showGrammarPracticeResults();
+                return;
+            }
+
+            const question = grammarPracticeQuestions[currentGrammarPracticeIndex];
+            
+            // Update question display
+            document.getElementById('grammar-topic-tag').textContent = question.topic;
+            document.getElementById('grammar-practice-question').textContent = question.question;
+            document.getElementById('grammar-practice-sentence').textContent = question.sentence;
+            document.getElementById('grammar-practice-counter').textContent = `Câu ${currentGrammarPracticeIndex + 1} / ${grammarPracticeQuestions.length}`;
+            
+            // Update progress bar
+            const progress = ((currentGrammarPracticeIndex + 1) / grammarPracticeQuestions.length) * 100;
+            document.getElementById('grammar-practice-progress').style.width = `${progress}%`;
+            
+            // Update options
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`grammar-option-${i}`).textContent = question.options[i];
+            }
+            
+            // Reset option styles
+            document.querySelectorAll('.grammar-practice-option').forEach(option => {
+                option.classList.remove('border-green-500', 'border-red-500', 'bg-green-100', 'bg-red-100');
+                option.classList.add('border-gray-300', 'hover:border-indigo-400');
+                option.disabled = false;
+            });
+            
+            // Hide feedback
+            document.getElementById('grammar-practice-feedback').classList.add('hidden');
+            
+            // Update navigation buttons
+            document.getElementById('grammar-practice-prev').disabled = currentGrammarPracticeIndex === 0;
+            document.getElementById('grammar-practice-next').textContent = currentGrammarPracticeIndex === grammarPracticeQuestions.length - 1 ? 'Kết thúc' : 'Câu tiếp →';
+            
+            isGrammarAnswered = false;
+        }
+
+        function selectGrammarPracticeAnswer(answerIndex) {
+            if (isGrammarAnswered) return;
+            
+            const question = grammarPracticeQuestions[currentGrammarPracticeIndex];
+            const options = document.querySelectorAll('.grammar-practice-option');
+            const feedbackDiv = document.getElementById('grammar-practice-feedback');
+            const feedbackText = document.getElementById('grammar-feedback-text');
+            const feedbackExplanation = document.getElementById('grammar-feedback-explanation');
+            
+            // Disable all options
+            options.forEach(option => {
+                option.disabled = true;
+                option.classList.remove('hover:border-indigo-400');
+            });
+            
+            // Store answer
+            grammarPracticeAnswers[currentGrammarPracticeIndex] = answerIndex;
+            isGrammarAnswered = true;
+            
+            // Check if correct
+            if (answerIndex === question.correct) {
+                // Correct answer
+                options[answerIndex].classList.add('border-green-500', 'bg-green-100');
+                feedbackDiv.classList.remove('hidden');
+                feedbackDiv.classList.add('bg-green-50', 'border-green-200');
+                feedbackDiv.classList.remove('bg-red-50', 'border-red-200');
+                feedbackText.textContent = '🎉 Chính xác!';
+                feedbackText.classList.add('text-green-700');
+                feedbackText.classList.remove('text-red-700');
+                
+                grammarPracticeScore++;
+                grammarCorrectCount++;
+                playCorrectSound();
+            } else {
+                // Incorrect answer
+                options[answerIndex].classList.add('border-red-500', 'bg-red-100');
+                options[question.correct].classList.add('border-green-500', 'bg-green-100');
+                feedbackDiv.classList.remove('hidden');
+                feedbackDiv.classList.add('bg-red-50', 'border-red-200');
+                feedbackDiv.classList.remove('bg-green-50', 'border-green-200');
+                feedbackText.textContent = '❌ Chưa đúng!';
+                feedbackText.classList.add('text-red-700');
+                feedbackText.classList.remove('text-green-700');
+                
+                grammarIncorrectCount++;
+                grammarMistakesList.push({
+                    question: question.sentence,
+                    topic: question.topic,
+                    yourAnswer: question.options[answerIndex],
+                    correctAnswer: question.options[question.correct],
+                    explanation: question.explanation
+                });
+                playIncorrectSound();
+            }
+            
+            feedbackExplanation.textContent = question.explanation;
+            
+            // Update stats
+            updateGrammarPracticeStats();
+            
+            // Auto advance after 2.5 seconds
+            setTimeout(() => {
+                if (currentGrammarPracticeIndex < grammarPracticeQuestions.length - 1) {
+                    nextGrammarPracticeQuestion();
+                } else {
+                    showGrammarPracticeResults();
+                }
+            }, 2500);
+        }
+
+        function nextGrammarPracticeQuestion() {
+            currentGrammarPracticeIndex++;
+            updateGrammarPractice();
+        }
+
+        function previousGrammarPracticeQuestion() {
+            if (currentGrammarPracticeIndex > 0) {
+                currentGrammarPracticeIndex--;
+                updateGrammarPractice();
+            }
+        }
+
+        function skipGrammarQuestion() {
+            grammarSkippedCount++;
+            grammarPracticeAnswers[currentGrammarPracticeIndex] = -1; // Mark as skipped
+            updateGrammarPracticeStats();
+            nextGrammarPracticeQuestion();
+        }
+
+        function showGrammarHint() {
+            const question = grammarPracticeQuestions[currentGrammarPracticeIndex];
+            const hints = {
+                "Past Simple": "Tìm dấu hiệu thời gian trong quá khứ (yesterday, last week, in 1995...)",
+                "Past Continuous": "Hành động đang diễn ra trong quá khứ (was/were + V-ing)",
+                "Cleft Sentences": "Câu chẻ bắt đầu bằng 'It + was/is + focus + that/who'",
+                "Articles": "A/An cho danh từ không xác định, The cho danh từ xác định",
+                "It's Time": "It's time + to V hoặc It's time + S + V-ed",
+                "Would Rather": "Would rather + V (bare infinitive)"
+            };
+            showToast(`Gợi ý ${question.topic}: ${hints[question.topic] || 'Đọc kỹ câu hỏi!'}`);
+        }
+
+        function updateGrammarPracticeStats() {
+            document.getElementById('grammar-practice-score').textContent = `${grammarPracticeScore}/${grammarPracticeQuestions.length}`;
+            document.getElementById('grammar-practice-percentage').textContent = `${Math.round((grammarPracticeScore / Math.max(1, currentGrammarPracticeIndex + 1)) * 100)}%`;
+            document.getElementById('grammar-correct-count').textContent = grammarCorrectCount;
+            document.getElementById('grammar-incorrect-count').textContent = grammarIncorrectCount;
+            document.getElementById('grammar-skipped-count').textContent = grammarSkippedCount;
+        }
+
+        function showGrammarPracticeResults() {
+            document.getElementById('grammar-practice-container').classList.add('hidden');
+            document.getElementById('grammar-practice-results').classList.remove('hidden');
+            
+            const percentage = Math.round((grammarPracticeScore / grammarPracticeQuestions.length) * 100);
+            
+            // Update final scores
+            document.getElementById('final-grammar-practice-score').textContent = `${grammarPracticeScore}/${grammarPracticeQuestions.length}`;
+            document.getElementById('final-grammar-correct').textContent = grammarCorrectCount;
+            document.getElementById('final-grammar-incorrect').textContent = grammarIncorrectCount;
+            document.getElementById('final-grammar-skipped').textContent = grammarSkippedCount;
+            
+            // Update message and emoji based on score
+            let message = '';
+            let emoji = '';
+            
+            if (percentage >= 90) {
+                message = '🌟 Xuất sắc! Bạn đã thành thạo ngữ pháp!';
+                emoji = '🏆';
+            } else if (percentage >= 80) {
+                message = '🎉 Tuyệt vời! Bạn đã nắm vững hầu hết ngữ pháp!';
+                emoji = '🎉';
+            } else if (percentage >= 70) {
+                message = '👍 Tốt! Hãy ôn lại một số điểm ngữ pháp.';
+                emoji = '👍';
+            } else if (percentage >= 60) {
+                message = '📚 Khá ổn! Cần luyện tập thêm.';
+                emoji = '📚';
+            } else {
+                message = '💪 Hãy học thêm và thử lại nhé!';
+                emoji = '💪';
+            }
+            
+            document.getElementById('final-grammar-practice-message').textContent = message;
+            document.getElementById('grammar-result-emoji').textContent = emoji;
+            
+            // Save progress
+            saveProgress('grammar_practice', grammarPracticeScore);
+            
+            // Update grammar progress
+            grammarProgress = Math.max(grammarProgress, percentage);
+            document.getElementById('grammar-progress-bar').style.width = `${grammarProgress}%`;
+            document.getElementById('grammar-progress-text').textContent = `${grammarProgress}% hoàn thành`;
+            updateOverallProgress();
+            
+            // Play completion sound
+            if (percentage >= 80) {
+                playCorrectSound();
+            }
+        }
+
+        function restartGrammarPractice() {
+            currentGrammarPracticeIndex = 0;
+            grammarPracticeScore = 0;
+            grammarPracticeAnswers = [];
+            grammarCorrectCount = 0;
+            grammarIncorrectCount = 0;
+            grammarSkippedCount = 0;
+            grammarMistakesList = [];
+            isGrammarAnswered = false;
+            
+            document.getElementById('grammar-practice-container').classList.remove('hidden');
+            document.getElementById('grammar-practice-results').classList.add('hidden');
+            
+            updateGrammarPractice();
+            updateGrammarPracticeStats();
+        }
+
+        function reviewGrammarMistakes() {
+            if (grammarMistakesList.length === 0) {
+                showToast('Không có câu nào sai để xem lại!');
+                return;
+            }
+            
+            // Create a modal to show mistakes
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-xl p-6 max-w-3xl max-h-96 overflow-y-auto">
+                    <h3 class="text-xl font-bold mb-4 text-red-600">📝 Xem lại câu sai - Ngữ pháp</h3>
+                    <div class="space-y-4 text-sm">
+                        ${grammarMistakesList.map((mistake, index) => `
+                            <div class="border-l-4 border-red-500 pl-4 py-2 bg-red-50">
+                                <div class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-semibold mb-2 inline-block">${mistake.topic}</div>
+                                <p class="font-semibold">${index + 1}. ${mistake.question}</p>
+                                <p class="text-red-600">❌ Bạn chọn: ${mistake.yourAnswer}</p>
+                                <p class="text-green-600">✅ Đáp án đúng: ${mistake.correctAnswer}</p>
+                                <p class="text-gray-600 italic">${mistake.explanation}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" class="mt-4 bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600">
+                        Đóng
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Mark sections as completed when viewed
+        function markSectionCompleted(section) {
+            completedActivities.add(section);
+            updateProgressDisplay();
+            saveProgress(section, 1);
+        }
+
+        // Auto-mark sections as completed after some interaction
+        setTimeout(() => {
+            if (currentSection === 'vocabulary') {
+                markSectionCompleted('vocabulary');
+            }
+        }, 5000);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'995be23897a88bcf',t:'MTc2MTY2OTcxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
