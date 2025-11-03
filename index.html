@@ -356,11 +356,11 @@
      </div>
     </div><!-- ASEAN Section -->
     <div id="asean-section" class="hidden">
-     <h2 class="text-lg sm:text-xl font-bold text-orange-600 mb-6 text-center">🌏 Các nước thành viên ASEAN</h2>
+     <h2 class="text-lg sm:text-xl font-bold text-orange-600 mb-6 text-center">🌏 ASEAN Member Countries</h2>
      <div class="bg-orange-50 rounded-lg p-4 sm:p-6">
       <div class="text-center mb-6">
-       <p class="text-sm text-gray-700 mb-2">Hiệp hội các quốc gia Đông Nam Á (ASEAN) gồm 10 nước thành viên</p>
-       <p class="text-xs text-gray-600">Nhấn vào biểu tượng 🔊 để nghe cách chào hỏi của từng nước</p>
+       <p class="text-sm text-gray-700 mb-2">The Association of Southeast Asian Nations (ASEAN) consists of 10 member countries</p>
+       <p class="text-xs text-gray-600">Click the 🔊 icon to hear greetings from each country</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4" id="asean-countries-main"><!-- Countries will be loaded here -->
       </div>
@@ -755,103 +755,103 @@
         const aseanCountries = [
             {
                 name: "Brunei",
-                nameVi: "Brunei",
+                nameLocal: "Brunei Darussalam",
                 capital: "Bandar Seri Begawan",
                 flagSvg: `<svg width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="40" fill="#FCD116"/><rect width="60" height="20" fill="#000000"/><rect y="20" width="60" height="20" fill="#FFFFFF"/><circle cx="30" cy="20" r="8" fill="#CE1126" stroke="#000" stroke-width="1"/></svg>`,
                 hello: "Selamat pagi",
-                helloMeaning: "Chào buổi sáng",
+                helloMeaning: "Good morning",
                 joinedYear: 1984,
-                description: "Brunei là một quốc gia nhỏ giàu có nhờ dầu mỏ, nổi tiếng với kiến trúc Hồi giáo tuyệt đẹp."
+                description: "Brunei is a small wealthy nation rich in oil resources, famous for its stunning Islamic architecture and peaceful society."
             },
             {
                 name: "Cambodia",
-                nameVi: "Campuchia", 
+                nameLocal: "កម្ពុជា (Kampuchea)", 
                 capital: "Phnom Penh",
                 flagSvg: `<svg width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="13" fill="#032EA1"/><rect y="13" width="60" height="14" fill="#E70011"/><rect y="27" width="60" height="13" fill="#032EA1"/><rect x="20" y="16" width="20" height="8" fill="#FFFFFF" rx="1"/></svg>`,
                 hello: "Chum reap suor",
-                helloMeaning: "Xin chào",
+                helloMeaning: "Hello",
                 joinedYear: 1999,
-                description: "Campuchia nổi tiếng với quần thể đền Angkor Wat - kỳ quan thế giới và di sản văn hóa Khmer cổ đại."
+                description: "Cambodia is famous for the Angkor Wat temple complex - a world wonder and ancient Khmer cultural heritage site."
             },
             {
                 name: "Indonesia",
-                nameVi: "Indonesia",
+                nameLocal: "Republik Indonesia",
                 capital: "Jakarta", 
                 flagSvg: `<svg width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="20" fill="#FF0000"/><rect y="20" width="60" height="20" fill="#FFFFFF"/></svg>`,
                 hello: "Selamat pagi",
-                helloMeaning: "Chào buổi sáng",
+                helloMeaning: "Good morning",
                 joinedYear: 1967,
-                description: "Indonesia là quốc gia quần đảo lớn nhất thế giới với hơn 17.000 đảo và văn hóa đa dạng."
+                description: "Indonesia is the world's largest archipelago with over 17,000 islands and incredibly diverse cultures and languages."
             },
             {
                 name: "Laos",
-                nameVi: "Lào",
+                nameLocal: "ລາວ (Lao PDR)",
                 capital: "Vientiane",
                 flagSvg: `<svg width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="13" fill="#CE1126"/><rect y="13" width="60" height="14" fill="#002868"/><rect y="27" width="60" height="13" fill="#CE1126"/><circle cx="30" cy="20" r="6" fill="#FFFFFF"/></svg>`, 
                 hello: "Sabaidee",
-                helloMeaning: "Xin chào",
+                helloMeaning: "Hello",
                 joinedYear: 1997,
-                description: "Lào là đất nước không giáp biển với thiên nhiên tươi đẹp và văn hóa Phật giáo truyền thống."
+                description: "Laos is a landlocked country with beautiful natural landscapes and traditional Buddhist culture and heritage."
             },
             {
                 name: "Malaysia",
-                nameVi: "Malaysia",
+                nameLocal: "Malaysia",
                 capital: "Kuala Lumpur",
                 flagSvg: `<svg width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="40" fill="#FFFFFF"/><rect width="60" height="3" fill="#CC0000"/><rect y="6" width="60" height="3" fill="#CC0000"/><rect y="12" width="60" height="3" fill="#CC0000"/><rect y="18" width="60" height="3" fill="#CC0000"/><rect y="24" width="60" height="3" fill="#CC0000"/><rect y="30" width="60" height="3" fill="#CC0000"/><rect y="36" width="60" height="4" fill="#CC0000"/><rect width="24" height="21" fill="#002868"/><path d="M12 10.5 L16 8 L20 10.5 L18 6 L22 4 L17 4 L15 0 L13 4 L8 4 L12 6 Z" fill="#FFCC00"/><circle cx="18" cy="12" r="4" fill="none" stroke="#FFCC00" stroke-width="1"/></svg>`,
                 hello: "Selamat pagi", 
-                helloMeaning: "Chào buổi sáng",
+                helloMeaning: "Good morning",
                 joinedYear: 1967,
-                description: "Malaysia là quốc gia đa văn hóa với kiến trúc hiện đại như tháp đôi Petronas và ẩm thực phong phú."
+                description: "Malaysia is a multicultural nation with modern architecture like the Petronas Twin Towers and rich, diverse cuisine."
             },
             {
                 name: "Myanmar",
-                nameVi: "Myanmar",
+                nameLocal: "မြန်မာ (Burma)",
                 capital: "Naypyidaw",
                 flagSvg: `<svg width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="13" fill="#FFCD00"/><rect y="13" width="60" height="14" fill="#34B233"/><rect y="27" width="60" height="13" fill="#EA2839"/><path d="M30 8 L32 14 L38 14 L33 18 L35 24 L30 20 L25 24 L27 18 L22 14 L28 14 Z" fill="#FFFFFF"/></svg>`,
                 hello: "Mingalaba",
-                helloMeaning: "Xin chào",
+                helloMeaning: "Hello",
                 joinedYear: 1997,
-                description: "Myanmar có hàng nghìn ngôi chùa cổ ở Bagan và là cái nôi của văn hóa Phật giáo Theravada."
+                description: "Myanmar has thousands of ancient pagodas in Bagan and is the cradle of Theravada Buddhist culture and traditions."
             },
             {
                 name: "Philippines",
-                nameVi: "Philippines", 
+                nameLocal: "Pilipinas", 
                 capital: "Manila",
                 flagSvg: `<svg width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="20" fill="#0038A8"/><rect y="20" width="60" height="20" fill="#CE1126"/><polygon points="0,0 24,20 0,40" fill="#FFFFFF"/><circle cx="12" cy="12" r="3" fill="#FFCD00"/><path d="M12 8 L13 11 L16 11 L14 13 L15 16 L12 14 L9 16 L10 13 L8 11 L11 11 Z" fill="#0038A8"/><path d="M6 18 L10 20 L14 18 L18 20 L22 18" stroke="#FFCD00" stroke-width="1" fill="none"/></svg>`,
                 hello: "Kumusta",
-                helloMeaning: "Xin chào",
+                helloMeaning: "Hello",
                 joinedYear: 1967,
-                description: "Philippines gồm hơn 7.000 đảo với bãi biển tuyệt đẹp và là quốc gia nói tiếng Anh nhiều nhất Đông Nam Á."
+                description: "The Philippines consists of over 7,000 islands with stunning beaches and is the most English-speaking country in Southeast Asia."
             },
             {
                 name: "Singapore",
-                nameVi: "Singapore",
+                nameLocal: "Singapore",
                 capital: "Singapore",
                 flagSvg: `<svg width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="20" fill="#ED2939"/><rect y="20" width="60" height="20" fill="#FFFFFF"/><circle cx="15" cy="10" r="4" fill="#FFFFFF"/><path d="M8 6 L9 9 L12 9 L10 11 L11 14 L8 12 L5 14 L6 11 L4 9 L7 9 Z" fill="#ED2939"/><path d="M12 6 L13 9 L16 9 L14 11 L15 14 L12 12 L9 14 L10 11 L8 9 L11 9 Z" fill="#ED2939"/><path d="M16 6 L17 9 L20 9 L18 11 L19 14 L16 12 L13 14 L14 11 L12 9 L15 9 Z" fill="#ED2939"/><path d="M20 6 L21 9 L24 9 L22 11 L23 14 L20 12 L17 14 L18 11 L16 9 L19 9 Z" fill="#ED2939"/><path d="M24 6 L25 9 L28 9 L26 11 L27 14 L24 12 L21 14 L22 11 L20 9 L23 9 Z" fill="#ED2939"/></svg>`, 
                 hello: "Hello",
-                helloMeaning: "Xin chào",
+                helloMeaning: "Hello",
                 joinedYear: 1967,
-                description: "Singapore là thành phố quốc gia hiện đại, trung tâm tài chính và thương mại quan trọng của khu vực."
+                description: "Singapore is a modern city-state and important financial and commercial hub of the region with excellent infrastructure."
             },
             {
                 name: "Thailand",
-                nameVi: "Thái Lan",
+                nameLocal: "ประเทศไทย (Prathet Thai)",
                 capital: "Bangkok",
                 flagSvg: `<svg width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="6" fill="#ED1C24"/><rect y="6" width="60" height="6" fill="#FFFFFF"/><rect y="12" width="60" height="16" fill="#241D4F"/><rect y="28" width="60" height="6" fill="#FFFFFF"/><rect y="34" width="60" height="6" fill="#ED1C24"/></svg>`,
                 hello: "Sawasdee krap/ka",
-                helloMeaning: "Xin chào",
+                helloMeaning: "Hello",
                 joinedYear: 1967,
-                description: "Thái Lan nổi tiếng với văn hóa Phật giáo, ẩm thực cay nồng và là điểm đến du lịch hàng đầu thế giới."
+                description: "Thailand is famous for its Buddhist culture, spicy cuisine, and is one of the world's top tourist destinations."
             },
             {
                 name: "Vietnam",
-                nameVi: "Việt Nam",
+                nameLocal: "Việt Nam",
                 capital: "Hanoi",
                 flagSvg: `<svg width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="40" fill="#DA020E"/><path d="M30 8 L32 14 L38 14 L33 18 L35 24 L30 20 L25 24 L27 18 L22 14 L28 14 Z" fill="#FFFF00"/></svg>`,
                 hello: "Xin chào",
-                helloMeaning: "Xin chào", 
+                helloMeaning: "Hello", 
                 joinedYear: 1995,
-                description: "Việt Nam có lịch sử lâu đời, văn hóa độc đáo và cảnh quan thiên nhiên đa dạng từ núi cao đến biển xanh."
+                description: "Vietnam has a long history, unique culture, and diverse natural landscapes from high mountains to blue seas."
             }
         ];
 
@@ -1379,13 +1379,13 @@
                 countryCard.innerHTML = `
                     <div class="text-center mb-3">
                         <div class="mb-2 flex justify-center">${country.flagSvg}</div>
-                        <h4 class="font-bold text-sm sm:text-base text-orange-800">${country.nameVi}</h4>
-                        <p class="text-xs text-gray-600">${country.name}</p>
+                        <h4 class="font-bold text-sm sm:text-base text-orange-800">${country.name}</h4>
+                        <p class="text-xs text-gray-600">${country.nameLocal}</p>
                     </div>
                     
                     <div class="space-y-1 text-xs">
-                        <div><strong>Thủ đô:</strong> ${country.capital}</div>
-                        <div><strong>Gia nhập ASEAN:</strong> ${country.joinedYear}</div>
+                        <div><strong>Capital:</strong> ${country.capital}</div>
+                        <div><strong>Joined ASEAN:</strong> ${country.joinedYear}</div>
                     </div>
                     
                     <div class="mt-2 p-2 bg-orange-50 rounded-lg">
@@ -2039,5 +2039,5 @@
         // Start the app
         document.addEventListener('DOMContentLoaded', initApp);
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9974b55fe7d26141',t:'MTc2MTkzMDAyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'998dc1a424be978e',t:'MTc2MjE5MjY3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
