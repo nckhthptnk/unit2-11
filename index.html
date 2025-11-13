@@ -15,6 +15,7 @@
         .flashcard {
             perspective: 1000px;
             height: 280px;
+            cursor: pointer;
         }
         
         @media (min-width: 640px) {
@@ -283,7 +284,10 @@
         </div>
        </div>
       </div><!-- Controls -->
-      <div class="flex justify-center items-center gap-2 sm:gap-4 mb-6 px-4"><button id="prev-vocab" class="bg-gray-500 hover:bg-gray-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base"> ← Lùi </button> <button id="flip-card" class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base"> 🔄 <span class="hidden sm:inline">Lật (Space)</span><span class="sm:hidden">Lật</span> </button> <button id="next-vocab" class="bg-green-500 hover:bg-green-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base"> Tiếp → </button>
+      <div class="flex justify-center items-center gap-2 sm:gap-4 mb-6 px-4"><button id="prev-vocab" class="bg-gray-500 hover:bg-gray-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base"> ← Lùi </button>
+       <div class="text-xs sm:text-sm text-gray-600 px-2 text-center">
+        Nhấn vào thẻ để lật<br><span class="hidden sm:inline">(hoặc phím Space)</span>
+       </div><button id="next-vocab" class="bg-green-500 hover:bg-green-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base"> Tiếp → </button>
       </div><!-- Vocabulary Progress -->
       <div class="text-center"><span class="text-gray-600" id="vocab-counter">1 / 41</span>
       </div>
@@ -306,10 +310,14 @@
     <div id="reading-section" class="hidden">
      <h2 class="text-lg sm:text-xl font-bold text-blue-600 mb-6 text-center">📖 Bài đọc - Vietnam and ASEAN</h2><!-- Reading Passage Container -->
      <div id="reading-container"><!-- Reading Passage -->
-      <div class="bg-gray-50 rounded-lg p-4 sm:p-6 mb-6">
-       <h3 class="text-base sm:text-lg font-semibold mb-4 text-center">Vietnam's Tourism and Cultural Heritage</h3>
-       <div class="text-xs sm:text-sm leading-relaxed text-justify" id="reading-passage">
-        Vietnam is a <span class="highlight">picturesque</span> country with diverse landscapes, from towering <span class="highlight">mountains</span> to pristine <span class="highlight">bays</span>. Ha Long Bay, with its limestone islands, is <span class="highlight">another</span> UNESCO World Heritage site that attracts millions of visitors. The country's <span class="highlight">historical</span> sites include ancient <span class="highlight">temples</span>, magnificent <span class="highlight">palaces</span>, and sacred <span class="highlight">pagodas</span> where people <span class="highlight">worship</span> their ancestors. Hue's Imperial <span class="highlight">Citadel</span> showcases Vietnam's royal <span class="highlight">architecture</span>, while the <span class="highlight">tomb</span> of Emperor Khai Dinh reflects French colonial influence. Vietnamese <span class="highlight">culture</span> is rich and diverse, with each region offering unique <span class="highlight">flavours</span> in local food <span class="highlight">stalls</span>. Visitors should <span class="highlight">take off</span> their shoes before entering religious sites to show respect. Tour guides often <span class="highlight">explain</span> the <span class="highlight">wisdom</span> behind ancient traditions and <span class="highlight">recommend</span> must-visit <span class="highlight">tourist attractions</span>. From the sand <span class="highlight">dunes</span> of Mui Ne to the peaceful <span class="highlight">valleys</span> of Sapa, Vietnam offers breathtaking natural beauty. The country continues to <span class="highlight">conserve</span> its heritage while welcoming travelers to experience its <span class="highlight">popular</span> destinations. Each <span class="highlight">symbol</span> and tradition tells a story of Vietnam's rich past and promising future.
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 sm:p-8 mb-6 border border-blue-200 shadow-lg">
+       <h3 class="text-xl sm:text-2xl font-bold mb-6 text-center text-blue-800 border-b-2 border-blue-300 pb-3">Vietnam and ASEAN: Regional Cooperation and Development</h3>
+       <div class="text-sm sm:text-base leading-loose text-justify space-y-6 font-medium" id="reading-passage">
+        <p class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-400">Vietnam's membership in ASEAN has significantly transformed the country's economic and social landscape since joining in 1995. As one of the ten member nations, Vietnam has actively participated in regional cooperation initiatives that promote trade, cultural exchange, and <span class="highlight font-bold">political</span> stability. The Association of Southeast Asian Nations, established in 1967, aims to accelerate economic growth and foster <span class="highlight font-bold">peaceful</span> relationships among member countries. Vietnam's <u class="font-bold text-blue-700 decoration-2">"independence"</u> in decision-making has been balanced with collaborative regional policies.</p>
+        <p class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-400">Vietnam's integration into ASEAN has opened new opportunities for international business and investment. The country has become a major manufacturing hub, attracting foreign companies seeking to establish production facilities in Southeast Asia. <span class="highlight font-bold">Another</span> significant benefit has been the increased tourism flow from neighboring ASEAN countries. <strong class="text-red-600 text-lg font-black">[I]</strong> Visitors from Thailand, Malaysia, and Singapore frequently travel to Vietnam to experience its <span class="highlight font-bold">picturesque</span> landscapes and rich <span class="highlight font-bold">culture</span>. <strong class="text-red-600 text-lg font-black">[II]</strong> The ASEAN Free Trade Area (AFTA) has eliminated most tariffs between member countries, making Vietnamese products more competitive in regional markets.</p>
+        <p class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-purple-400">Vietnamese coffee, rice, and seafood are now <span class="highlight font-bold">popular</span> exports throughout Southeast Asia. <span class="highlight font-bold">Historical</span> ties between Vietnam and other ASEAN nations have strengthened through educational exchanges and diplomatic cooperation. <strong class="text-red-600 text-lg font-black">[III]</strong> Many Vietnamese students now study in other ASEAN universities, while regional scholars frequently <u class="font-bold text-blue-700 decoration-2">"dismiss"</u> outdated research methods in favor of collaborative approaches. <strong class="text-red-600 text-lg font-black">[IV]</strong> These academic partnerships have created lasting bonds between nations.</p>
+        <p class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-400">Cultural preservation remains important as Vietnam modernizes. Ancient <span class="highlight font-bold">temples</span> and <span class="highlight font-bold">pagodas</span> where people <span class="highlight font-bold">worship</span> <u class="font-bold text-blue-700 decoration-2">their</u> ancestors continue to attract both domestic and international visitors. The government works to <span class="highlight font-bold">conserve</span> these heritage sites while promoting sustainable tourism. Tour guides <span class="highlight font-bold">explain</span> the <span class="highlight font-bold">wisdom</span> of traditional practices and <span class="highlight font-bold">recommend</span> authentic cultural experiences. Vietnam's cultural diplomacy has helped strengthen relationships with neighboring countries.</p>
+        <p class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-400">Looking forward, Vietnam's role in ASEAN will likely expand as the country continues developing its economy and infrastructure. <u class="font-bold text-blue-700 decoration-2 bg-yellow-100 px-2 py-1 rounded">"Regional cooperation through ASEAN provides a framework for addressing shared challenges"</u> such as climate change and economic development. Each member nation contributes unique strengths, creating a diverse and dynamic regional community that benefits all participants. Vietnam's commitment to multilateral cooperation demonstrates its dedication to regional peace and prosperity.</p>
        </div>
       </div><!-- Reading Quiz -->
       <div class="bg-blue-50 rounded-lg p-4 sm:p-6">
@@ -318,7 +326,7 @@
        </div>
        <div class="text-center mt-4">
         <div class="text-sm text-gray-600" id="reading-score">
-         Điểm: 0/5
+         Điểm: 0/8
         </div>
        </div>
       </div>
@@ -858,34 +866,52 @@
         // Reading quiz questions
         const readingQuestions = [
             {
-                question: "What makes Ha Long Bay special according to the passage?",
-                options: ["It has sand dunes", "It has limestone islands and is a UNESCO World Heritage site", "It has ancient temples", "It has food stalls"],
-                correct: 1,
-                explanation: "Ha Long Bay, with its limestone islands, is another UNESCO World Heritage site that attracts millions of visitors."
+                question: "The word \"independence\" in paragraph 1 is CLOSEST in meaning to ________________.",
+                options: ["self-reliance", "attention", "patience", "guidance"],
+                correct: 0,
+                explanation: "\"Independence\" in this context refers to Vietnam's self-reliance in decision-making while participating in ASEAN."
             },
             {
-                question: "What should visitors do before entering religious sites in Vietnam?",
-                options: ["Bring offerings", "Take off their shoes", "Speak quietly", "Take photos"],
+                question: "What does the word \"their\" in paragraph 4 refer to?",
+                options: ["temples'", "people's", "pagodas'", "visitors'"],
                 correct: 1,
-                explanation: "Visitors should take off their shoes before entering religious sites to show respect."
+                explanation: "\"Their\" refers to the people who worship ancestors at temples and pagodas."
             },
             {
-                question: "Which historical site showcases Vietnam's royal architecture?",
-                options: ["Ha Long Bay", "Mui Ne sand dunes", "Hue's Imperial Citadel", "Sapa valleys"],
+                question: "The word \"dismiss\" in paragraph 3 is OPPOSITE in meaning to ________________.",
+                options: ["ignore", "refuse", "accept", "confuse"],
                 correct: 2,
-                explanation: "Hue's Imperial Citadel showcases Vietnam's royal architecture."
+                explanation: "\"Dismiss\" means to reject or disregard, so its opposite would be \"accept\" or embrace."
             },
             {
-                question: "What do tour guides often do for visitors?",
-                options: ["Sell souvenirs", "Explain wisdom behind traditions and recommend attractions", "Take photographs", "Prepare food"],
-                correct: 1,
-                explanation: "Tour guides often explain the wisdom behind ancient traditions and recommend must-visit tourist attractions."
+                question: "In which paragraph does the writer explain Vietnam's cultural preservation efforts?",
+                options: ["Paragraph 1", "Paragraph 2", "Paragraph 3", "Paragraph 4"],
+                correct: 3,
+                explanation: "Paragraph 4 discusses how Vietnam preserves ancient temples and pagodas while promoting sustainable tourism."
             },
             {
-                question: "According to the passage, what does Vietnam continue to do with its heritage?",
-                options: ["Sell it to tourists", "Ignore it completely", "Conserve it while welcoming travelers", "Change it for modern times"],
+                question: "Where in the passage does the following sentence best fit? \"This has created new opportunities for cultural exchange and mutual understanding.\"",
+                options: ["[I]", "[II]", "[III]", "[IV]"],
+                correct: 3,
+                explanation: "Position [IV] follows the discussion of academic partnerships, making it the best place for a sentence about cultural exchange opportunities."
+            },
+            {
+                question: "Which of the following is TRUE according to the passage?",
+                options: ["Vietnam joined ASEAN before 1990", "AFTA has increased tariffs between member countries", "Vietnamese students study in other ASEAN universities", "Vietnam only exports manufactured goods"],
                 correct: 2,
-                explanation: "The country continues to conserve its heritage while welcoming travelers to experience its popular destinations."
+                explanation: "The passage states that many Vietnamese students now study in other ASEAN universities as part of educational exchanges."
+            },
+            {
+                question: "Which of the following best paraphrases the underlined sentence in paragraph 5? \"Regional cooperation through ASEAN provides a framework for addressing shared challenges\"",
+                options: ["ASEAN creates problems that need solving", "Working together through ASEAN helps solve common issues", "ASEAN only focuses on economic development", "Regional cooperation is not important for development"],
+                correct: 1,
+                explanation: "This option correctly captures how ASEAN cooperation provides a structure for member countries to address common challenges together."
+            },
+            {
+                question: "Which can be inferred from the passage?",
+                options: ["Vietnam's ASEAN membership has only economic benefits", "Cultural preservation conflicts with modernization in Vietnam", "Vietnam balances national autonomy with regional cooperation", "ASEAN membership requires countries to abandon their traditions"],
+                correct: 2,
+                explanation: "The passage shows how Vietnam maintains its independence in decision-making while actively participating in regional cooperation, demonstrating a balance between autonomy and collaboration."
             }
         ];
 
@@ -1746,9 +1772,14 @@
             const question = readingQuestions[questionIndex];
             const isCorrect = selectedOption === question.correct;
             
-            // Disable all options for this question
+            // Check if this question was already answered
             const questionDiv = event.target.closest('.mb-6');
             const options = questionDiv.querySelectorAll('.quiz-option');
+            const alreadyAnswered = Array.from(options).some(opt => opt.style.pointerEvents === 'none');
+            
+            if (alreadyAnswered) return; // Prevent multiple answers
+            
+            // Disable all options for this question
             options.forEach(opt => {
                 opt.style.pointerEvents = 'none';
                 if (parseInt(opt.dataset.option) === question.correct) {
@@ -1772,17 +1803,29 @@
             }
 
             // Update score
-            document.getElementById('reading-score').textContent = `Điểm: ${readingScore}/5`;
+            document.getElementById('reading-score').textContent = `Điểm: ${readingScore}/8`;
 
-            // Check if all questions answered
-            const answeredQuestions = document.querySelectorAll('.quiz-option[style*="pointer-events: none"]').length / 4;
-            if (answeredQuestions === readingQuestions.length) {
+            // Update progress immediately after each answer
+            const totalAnswered = document.querySelectorAll('.quiz-option[style*="pointer-events: none"]').length / 4;
+            const progressPercentage = Math.round((totalAnswered / readingQuestions.length) * 100);
+            
+            currentData.reading_progress = progressPercentage;
+            if (totalAnswered === readingQuestions.length) {
                 currentData.completed_reading = true;
-                currentData.reading_progress = 100;
-                
-                const result = await window.dataSdk.create(currentData);
-                if (result.isOk) {
-                    updateProgress();
+            }
+            
+            // Update progress display immediately
+            updateProgress();
+            
+            // Save progress to database
+            if (window.dataSdk) {
+                try {
+                    const result = await window.dataSdk.update(currentData);
+                    if (!result.isOk) {
+                        console.error('Failed to update reading progress');
+                    }
+                } catch (error) {
+                    console.error('Error updating reading progress:', error);
                 }
             }
         }
@@ -1985,7 +2028,7 @@
             }
 
             // Set up event listeners
-            document.getElementById('flip-card').addEventListener('click', flipCard);
+            document.getElementById('flashcard').addEventListener('click', flipCard);
             document.getElementById('prev-vocab').addEventListener('click', () => navigateVocab(-1));
             document.getElementById('next-vocab').addEventListener('click', () => navigateVocab(1));
 
@@ -2039,5 +2082,5 @@
         // Start the app
         document.addEventListener('DOMContentLoaded', initApp);
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'998dc1a424be978e',t:'MTc2MjE5MjY3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99dfc1fe5368820a',t:'MTc2MzA1MjUxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
